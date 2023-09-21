@@ -1,0 +1,72 @@
+{
+  "name": "todo-django-tailwind",
+  "description": "Django with Tailwind To Do Website",
+  "version": "1.0.0",
+  "author": "Niel Conradie",
+  "license": "MIT",
+  "main": "gulpfile.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niel-conradie/todo-django-tailwind.git"
+  },
+  "homepage": "https://github.com/niel-conradie/todo-django-tailwind#readme",
+  "bugs": {
+    "url": "https://github.com/niel-conradie/todo-django-tailwind/issues"
+  },
+  "keywords": [
+    "autoprefixer",
+    "babel/core",
+    "babel/preset-env",
+    "cssnano",
+    "gulp",
+    "gulp-babel",
+    "gulp-concat",
+    "gulp-postcss",
+    "gulp-rename",
+    "gulp-sourcemaps",
+    "gulp-terser",
+    "postcss",
+    "postcss-import",
+    "prettier",
+    "prettier-plugin-tailwindcss",
+    "tailwind",
+    "tailwind-aspect-ratio",
+    "tailwind-container-queries",
+    "tailwind-forms",
+    "tailwind-typography"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.22.20",
+    "@babel/preset-env": "^7.22.20",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/forms": "^0.5.6",
+    "@tailwindcss/typography": "^0.5.10",
+    "autoprefixer": "^10.4.15",
+    "cssnano": "^6.0.1",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-postcss": "^9.0.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-terser": "^2.1.0",
+    "postcss": "^8.4.29",
+    "postcss-import": "^15.1.0",
+    "prettier": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.4",
+    "tailwindcss": "^3.3.3"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

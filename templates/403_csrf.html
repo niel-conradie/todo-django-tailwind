@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+<!--  -->
+{% load static %}
+<!--  -->
+{% block head_title %}Forbidden (403){% endblock head_title %}
+
+<!--  -->
+
+{% block extra_head %}
+
+<!-- Meta -->
+<meta name="description" content="403 CSRF Page" />
+<meta name="author" content="Niel Conradie" />
+
+<!-- Favicon -->
+<link
+  rel="shortcut icon"
+  type="image/x-icon"
+  href="{% static 'favicon/favicon.ico' %}"
+/>
+
+{% endblock extra_head %}
+
+<!--  -->
+
+{% block content %}
+<main>
+  <h1>Forbidden (403)</h1>
+  <p>CSRF verification failed. Request aborted.</p>
+</main>
+{% endblock content %}

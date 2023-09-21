@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+<!--  -->
+{% load static %}
+<!--  -->
+{% block head_title %}500 Server Error{% endblock head_title %}
+
+<!--  -->
+
+{% block extra_head %}
+
+<!-- Meta -->
+<meta name="description" content="500 Page" />
+<meta name="author" content="Niel Conradie" />
+
+<!-- Favicon -->
+<link
+  rel="shortcut icon"
+  type="image/x-icon"
+  href="{% static 'favicon/favicon.ico' %}"
+/>
+
+{% endblock extra_head %}
+
+<!--  -->
+
+{% block content %}
+<main>
+  <h1>500 Server Error</h1>
+  <p>Looks like something went wrong!</p>
+</main>
+{% endblock content %}
