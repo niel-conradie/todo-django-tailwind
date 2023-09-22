@@ -1,6 +1,8 @@
-from accounts.views.login import LoginPageView
+from accounts.views.login import CustomLoginView
+from accounts.views.logout import CustomLogoutView
 
 
 __all__ = [
-    LoginPageView,
+    CustomLoginView,
+    CustomLogoutView,
 ]
