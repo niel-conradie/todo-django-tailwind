@@ -13,7 +13,7 @@ const exec = require("child_process").exec;
 // CSS Task
 function cssTask() {
   var proc = exec(
-    "npx tailwindcss -i ./assets/css/main.css -o ./static/css/main.min.css --watch"
+    "npx tailwindcss -i ./assets/css/main.css -o ./static/css/main.min.css --watch",
   );
   return new Promise(function (resolve, reject) {
     resolve();

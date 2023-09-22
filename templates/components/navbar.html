@@ -1,1 +1,25 @@
-<header>Header</header>
+<header class="bg-gray-500 p-5">
+  <div class="flex justify-between">
+    <div>
+      <a href="/">To Do</a>
+    </div>
+
+    <nav>
+      <ul class="flex justify-between gap-3">
+        <li>
+          <a href="#">Link</a>
+        </li>
+        <li>
+          <a href="#">Link</a>
+        </li>
+        <li>
+          <a href="#">Link</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div>
+      <a href="{% url 'accounts:login' %}">Log In</a>
+    </div>
+  </div>
+</header>

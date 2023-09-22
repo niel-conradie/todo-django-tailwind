@@ -1,6 +1,6 @@
-from pages.views.home import HomePageView
+from pages.views.index import IndexPageView
 
 
 __all__ = [
-    HomePageView,
+    IndexPageView,
 ]

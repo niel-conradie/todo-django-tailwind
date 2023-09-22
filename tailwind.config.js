@@ -1,22 +1,25 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./templates/**/*.html", "./pages/templates/**/*.html"],
+  content: [
+    "./templates/**/*.html",
+    "./accounts/templates/accounts/*.html",
+    "./pages/templates/pages/*.html",
+  ],
 
   // || Overriding styles
   theme: {
-    // screens: {
-    //   sm: "640px",
-    //   md: "768px",
-    //   lg: "1024px",
-    //   xl: "1280px",
-    // },
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+    },
 
     // || Additional styles
     extend: {
-      // fontFamily: {
-      //   primary: ["Roboto", "sans-serif"],
-      //   secondary: ["Merriweather", "serif"],
-      // },
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+      },
       // colors: {
       //   spotify: {
       //     50: "",

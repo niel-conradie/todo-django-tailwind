@@ -1,6 +1,6 @@
-from pages.tests.home import HomePageTests
+from pages.tests.index import IndexPageTests
 
 
 __all__ = [
-    HomePageTests,
+    IndexPageTests,
 ]
