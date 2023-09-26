@@ -2,14 +2,14 @@
 
 <!--  -->
 
-{% block head_title %}Log In{% endblock head_title %}
+{% block head_title %}Log Out{% endblock head_title %}
 
 <!--  -->
 
 {% block extra_head %}
 
 <!-- Meta -->
-<meta name="description" content="Log In Page" />
+<meta name="description" content="Log Out Page" />
 <meta name="author" content="Niel Conradie" />
 
 {% endblock extra_head %}
@@ -19,14 +19,14 @@
 {% block main %}
 <main>
   <div>
-    <h1>Log In</h1>
+    <h1>Log Out</h1>
 
-    <form method="post" action="{% url 'accounts:login' %}">
+    <form method="post" action="{% url 'accounts:logout' %}">
       {% csrf_token %}
 
       <div>{{ form.as_p }}</div>
 
-      <button type="submit">Submit</button>
+      <button type="submit">Confirm</button>
     </form>
   </div>
 </main>

@@ -16,7 +16,7 @@ class IndexPageTests(SimpleTestCase):
         self.assertTemplateUsed(self.response, "pages/index.html")
 
     def test_homepage_contains_correct_html(self):
-        self.assertContains(self.response, "Test")
+        self.assertContains(self.response, "Index")
 
     def test_homepage_does_not_contain_incorrect_html(self):
         self.assertNotContains(self.response, "Hi there! I should not be on the page.")
