@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+<!--  -->
+
+{% block head_title %}Profile Change{% endblock head_title %}
+
+<!--  -->
+
+{% block extra_head %}
+
+<!-- Meta -->
+<meta name="description" content="Profile Change Page" />
+<meta name="author" content="Niel Conradie" />
+
+{% endblock extra_head %}
+
+<!--  -->
+
+{% block main %}
+<main>
+  <div>
+    <h1>Profile Change</h1>
+
+    <form
+      method="post"
+      action="{% url 'accounts:profile_change' request.user.id %}"
+    >
+      {% csrf_token %}
+
+      <div>{{ form.as_p }}</div>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</main>
+{% endblock main %}

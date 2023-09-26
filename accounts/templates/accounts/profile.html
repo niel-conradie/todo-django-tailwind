@@ -20,9 +20,28 @@
 <main>
   <div>
     <h1>Profile</h1>
-    <p>First Name: {% if user.first_name == '' %}None{% endif %}</p>
-    <p>Last Name: {% if user.last_name == '' %}None{% endif %}</p>
-    <p>Username: {{ user.username }}</p>
+
+    <div>
+      {% if user.first_name == '' %}
+      <p>First Name: None</p>
+      {% else %}
+      <p>First Name: {{ user.first_name }}</p>
+      {% endif %}
+    </div>
+
+    <div>
+      {% if user.last_name == '' %}
+      <p>Last Name: None</p>
+      {% else %}
+      <p>Last Name: {{ user.last_name }}</p>
+      {% endif %}
+    </div>
+
+    <div>
+      <p>Username: {{ user.username }}</p>
+    </div>
+
+    <a href="{% url 'accounts:profile_change' request.user.id %}">Change</a>
   </div>
 </main>
 {% endblock main %}
