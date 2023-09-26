@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+<!--  -->
+
+{% block head_title %}Profile{% endblock head_title %}
+
+<!--  -->
+
+{% block extra_head %}
+
+<!-- Meta -->
+<meta name="description" content="Profile Page" />
+<meta name="author" content="Niel Conradie" />
+
+{% endblock extra_head %}
+
+<!--  -->
+
+{% block main %}
+<main>
+  <div>
+    <h1>Profile</h1>
+    <p>First Name: {% if user.first_name == '' %}None{% endif %}</p>
+    <p>Last Name: {% if user.last_name == '' %}None{% endif %}</p>
+    <p>Username: {{ user.username }}</p>
+  </div>
+</main>
+{% endblock main %}

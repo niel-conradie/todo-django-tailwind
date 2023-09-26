@@ -23,6 +23,12 @@
     {% if request.user.is_authenticated %}
     <div>
       <a
+        class="me-2 rounded-xl bg-green-500 p-2 text-gray-50"
+        href="{% url 'accounts:profile' request.user.id %}"
+      >
+        Profile
+      </a>
+      <a
         class="rounded-xl bg-red-500 p-2 text-gray-50"
         href="{% url 'accounts:logout' %}"
       >
