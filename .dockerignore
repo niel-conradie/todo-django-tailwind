@@ -1,5 +1,8 @@
 __pycache__/
+
 *.sqlite3
-.venv/
+
 .env
+.venv/
 .git
+.node_modules/

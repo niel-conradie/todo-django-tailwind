@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+<!--  -->
+
+{% block head_title %}Sign Up{% endblock head_title %}
+
+<!--  -->
+
+{% block extra_head %}
+
+<!-- Meta -->
+<meta name="description" content="Sign Up Page" />
+<meta name="author" content="Niel Conradie" />
+
+{% endblock extra_head %}
+
+<!--  -->
+
+{% block main %}
+<main>
+  <div>
+    <h1>Sign Up</h1>
+
+    <form method="post" action="{% url 'accounts:signup' %}">
+      {% csrf_token %}
+
+      <div>{{ form.as_p }}</div>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</main>
+{% endblock main %}

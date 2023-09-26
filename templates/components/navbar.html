@@ -21,9 +21,29 @@
     <!--  -->
 
     {% if request.user.is_authenticated %}
-    <a href="{% url 'accounts:logout' %}">Log Out</a>
+    <div>
+      <a
+        class="rounded-xl bg-red-500 p-2 text-gray-50"
+        href="{% url 'accounts:logout' %}"
+      >
+        Log Out
+      </a>
+    </div>
     {% else %}
-    <a href="{% url 'accounts:login' %}">Log In</a>
+    <div>
+      <a
+        class="me-2 rounded-xl bg-green-500 p-2 text-gray-50"
+        href="{% url 'accounts:login' %}"
+      >
+        Log In
+      </a>
+      <a
+        class="rounded-xl bg-yellow-500 p-2 text-gray-50"
+        href="{% url 'accounts:signup' %}"
+      >
+        Sign Up
+      </a>
+    </div>
     {% endif %}
   </div>
 </header>
