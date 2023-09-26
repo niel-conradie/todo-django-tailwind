@@ -9,6 +9,6 @@ DJANGO_URLS = [
 ]
 
 LOCAL_URLS = [
-    path("", include("pages.urls.urls", namespace="pages")),
-    path("accounts/", include("accounts.urls.urls", namespace="accounts")),
+    path("", include("pages.urls.urls")),
+    path("accounts/", include("accounts.urls.urls")),
 ]
