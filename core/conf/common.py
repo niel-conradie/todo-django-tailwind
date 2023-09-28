@@ -64,7 +64,6 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     "allauth",
     "allauth.account",
-    "allauth.socialaccount",
 ]
 
 LOCAL_APPS = [
@@ -185,6 +184,17 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL = "accounts.CustomUser"
 
 
+## Authentication
+# https://docs.djangoproject.com/en/4.2/ref/settings/#login-url
+LOGIN_URL = "account_login"
+
+# https://docs.djangoproject.com/en/4.2/ref/settings/#login-redirect-url
+LOGIN_REDIRECT_URL = "/"
+
+# https://docs.djangoproject.com/en/4.2/ref/settings/#logout-redirect-url
+LOGOUT_REDIRECT_URL = "/"
+
+
 ## django-allauth
 # https://django-allauth.readthedocs.io/en/latest/installation.html#
 
@@ -194,37 +204,66 @@ AUTHENTICATION_BACKENDS = (
     "allauth.account.auth_backends.AuthenticationBackend",
 )
 
-# https://docs.djangoproject.com/en/4.2/ref/settings/#login-redirect-url
-LOGIN_REDIRECT_URL = "/"
-
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = LOGIN_REDIRECT_URL
 
 ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_UNIQUE_USERNAME = True
+ACCOUNT_USERNAME_MIN_LENGTH = 1
+ACCOUNT_USERNAME_VALIDATORS = None
+ACCOUNT_USERNAME_BLACKLIST = []
+ACCOUNT_USER_MODEL_USERNAME_FIELD = "username"
 
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
-ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_EMAIL_MAX_LENGTH = 254
 ACCOUNT_MAX_EMAIL_ADDRESSES = None
+ACCOUNT_CHANGE_EMAIL = False
+ACCOUNT_USER_MODEL_EMAIL_FIELD = "email"
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_CONFIRM_EMAIL_ON_GET = False
+ACCOUNT_EMAIL_CONFIRMATION_HMAC = True
 ACCOUNT_EMAIL_CONFIRMATION_COOLDOWN = 180
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3
-ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = None
+ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = LOGIN_URL
+ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = LOGIN_REDIRECT_URL
 
 ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
 ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
 ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 300
 
-ACCOUNT_LOGOUT_REDIRECT_URL = "/"
+ACCOUNT_LOGOUT_REDIRECT_URL = LOGOUT_REDIRECT_URL
 ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True
+ACCOUNT_LOGOUT_ON_GET = False
 
-ACCOUNT_SIGNUP_REDIRECT_URL = "/"
+ACCOUNT_SIGNUP_REDIRECT_URL = LOGIN_REDIRECT_URL
+ACCOUNT_SIGNUP_FORM_CLASS = None
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = False
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
 
+ACCOUNT_PASSWORD_INPUT_RENDER_VALUE = False
 ACCOUNT_PRESERVE_USERNAME_CASING = True
 ACCOUNT_PREVENT_ENUMERATION = True
 ACCOUNT_SESSION_REMEMBER = False
+
+ACCOUNT_FORMS = {
+    "add_email": "allauth.account.forms.AddEmailForm",
+    "change_password": "allauth.account.forms.ChangePasswordForm",
+    "login": "allauth.account.forms.LoginForm",
+    "reset_password": "allauth.account.forms.ResetPasswordForm",
+    "reset_password_from_key": "allauth.account.forms.ResetPasswordKeyForm",
+    "set_password": "allauth.account.forms.SetPasswordForm",
+    "signup": "allauth.account.forms.SignupForm",
+    "user_token": "allauth.account.forms.UserTokenForm",
+}
+
+ACCOUNT_RATE_LIMITS = {
+    "change_password": "5/m",
+    "manage_email": "10/m",
+    "reset_password": "20/m",
+    "reset_password_email": "5/m",
+    "reset_password_from_key": "20/m",
+    "signup": "20/m",
+}
