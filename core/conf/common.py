@@ -152,6 +152,9 @@ TIME_ZONE = "UTC"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#std:setting-USE_I18N
 USE_I18N = True
 
+# https://docs.djangoproject.com/en/4.2/ref/settings/#use-l10n
+USE_L10N = True
+
 # https://docs.djangoproject.com/en/4.2/ref/settings/#use-tz
 USE_TZ = True
 

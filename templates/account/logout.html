@@ -2,7 +2,11 @@
 
 <!--  -->
 
-{% block head_title %}Sign Out{% endblock head_title %}
+{% load i18n %}
+
+<!--  -->
+
+{% block head_title %}{% trans "Sign Out" %}{% endblock head_title %}
 
 <!--  -->
 
@@ -18,9 +22,9 @@
 
 {% block content %}
 <main>
-  <h1>Sign Out</h1>
+  <h1>{% trans "Sign Out" %}</h1>
 
-  <p>Are you sure you want to sign out?</p>
+  <p>{% trans 'Are you sure you want to sign out?' %}</p>
 
   <form method="post" action="{% url 'account_logout' %}">
     {% csrf_token %}
@@ -35,7 +39,7 @@
     />
     {% endif %}
 
-    <button type="submit">Submit</button>
+    <button type="submit">{% trans 'Sign Out' %}</button>
   </form>
 </main>
 {% endblock content %}

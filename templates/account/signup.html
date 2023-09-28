@@ -2,7 +2,11 @@
 
 <!--  -->
 
-{% block head_title %}Sign Up{% endblock head_title %}
+{% load i18n %}
+
+<!--  -->
+
+{% block head_title %}{% trans "Sign Up" %}{% endblock head_title %}
 
 <!--  -->
 
@@ -18,11 +22,15 @@
 
 {% block content %}
 <main>
-  <h1>Sign Up</h1>
+  <h1>{% trans "Sign Up" %}</h1>
 
   <p>
+    {% blocktrans %}
+    <!--  -->
     Already have an account? Then please
     <a href="{{ login_url }}">sign in</a>.
+    <!--  -->
+    {% endblocktrans %}
   </p>
 
   <form method="post" action="{% url 'account_signup' %}">
@@ -38,7 +46,7 @@
     />
     {% endif %}
 
-    <button type="submit">Submit</button>
+    <button type="submit">{% trans 'Submit' %}</button>
   </form>
 </main>
 {% endblock content %}
