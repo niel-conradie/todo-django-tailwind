@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+<!--  -->
+
+{% block head_title %}Sign In{% endblock head_title %}
+
+<!--  -->
+
+{% block extra_head %}
+
+<!-- Meta -->
+<meta name="description" content="Sign In Page" />
+<meta name="author" content="Niel Conradie" />
+
+{% endblock extra_head %}
+
+<!--  -->
+
+{% block content %}
+<main>
+  <h1>Sign In</h1>
+
+  <p>
+    Don't have an account? Then please
+    <a href="{{ signup_url }}">sign up</a>.
+  </p>
+
+  <form method="post" action="{% url 'account_login' %}">
+    {% csrf_token %}
+
+    <div>{{ form.as_p }}</div>
+
+    {% if redirect_field_value %}
+    <input
+      type="hidden"
+      name="{{ redirect_field_name }}"
+      value="{{ redirect_field_value }}"
+    />
+    {% endif %}
+
+    <button type="submit">Submit</button>
+
+    <a href="{% url 'account_reset_password' %}">Forgot Password?</a>
+  </form>
+</main>
+{% endblock content %}

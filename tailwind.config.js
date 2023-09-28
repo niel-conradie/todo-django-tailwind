@@ -2,11 +2,7 @@
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./templates/**/*.html",
-    "./accounts/templates/accounts/*.html",
-    "./pages/templates/pages/*.html",
-  ],
+  content: ["./templates/**/*.html"],
 
   // || Overriding styles
   theme: {

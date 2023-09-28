@@ -11,7 +11,7 @@
     {% block extra_head %}
 
     <!-- Meta -->
-    <meta name="description" content="Django with Tailwind To Do Website" />
+    <meta name="description" content="Django with Tailwind To Do" />
     <meta name="author" content="Niel Conradie" />
 
     {% endblock extra_head %}
@@ -82,9 +82,26 @@
 
     <!--  -->
 
-    {% block main %}
+    {% block messages %}
     <!--  -->
-    {% endblock main %}
+    {% if messages %}
+    <div>
+      <strong>Messages:</strong>
+      <ul>
+        {% for message in messages %}
+        <li>{{message}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    <!--  -->
+    {% endblock messages %}
+
+    <!--  -->
+
+    {% block content %}
+    <!--  -->
+    {% endblock content %}
 
     <!--  -->
 

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+<!--  -->
+
+{% block head_title %}Sign Out{% endblock head_title %}
+
+<!--  -->
+
+{% block extra_head %}
+
+<!-- Meta -->
+<meta name="description" content="Sign Out Page" />
+<meta name="author" content="Niel Conradie" />
+
+{% endblock extra_head %}
+
+<!--  -->
+
+{% block content %}
+<main>
+  <h1>Sign Out</h1>
+
+  <p>Are you sure you want to sign out?</p>
+
+  <form method="post" action="{% url 'account_logout' %}">
+    {% csrf_token %}
+
+    <div>{{ form.as_p }}</div>
+
+    {% if redirect_field_value %}
+    <input
+      type="hidden"
+      name="{{ redirect_field_name }}"
+      value="{{ redirect_field_value }}"
+    />
+    {% endif %}
+
+    <button type="submit">Submit</button>
+  </form>
+</main>
+{% endblock content %}

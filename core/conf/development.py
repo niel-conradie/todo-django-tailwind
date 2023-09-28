@@ -12,20 +12,26 @@ ALLOWED_HOSTS = ["*"]
 
 ## Application definition
 # https://docs.djangoproject.com/en/4.2/ref/settings/#installed-apps
-THIRD_PARTY_APPS = [
+DEVELOPMENT_APPS = [
     "debug_toolbar",
     "django_browser_reload",
 ]
 
-INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS + DEVELOPMENT_APPS
 
 # https://docs.djangoproject.com/en/4.2/ref/settings/#middleware
-THIRD_PARTY_MIDDLEWARE = [
+DEVELOPMENT_MIDDLEWARE = [
     "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
-MIDDLEWARE = DJANGO_MIDDLEWARE + THIRD_PARTY_MIDDLEWARE + LOCAL_MIDDLEWARE
+MIDDLEWARE = (
+    DJANGO_MIDDLEWARE
+    + THIRD_PARTY_MIDDLEWARE
+    + LOCAL_MIDDLEWARE
+    + DEVELOPMENT_MIDDLEWARE
+)
+
 
 # https://docs.djangoproject.com/en/4.2/ref/settings/#root-urlconf
 ROOT_URLCONF = "core.urls.development"

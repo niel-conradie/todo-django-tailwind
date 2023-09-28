@@ -8,7 +8,10 @@ DJANGO_URLS = [
     path("admin/", admin.site.urls),
 ]
 
+THIRD_PARTY_URLS = [
+    path("accounts/", include("allauth.urls")),
+]
+
 LOCAL_URLS = [
     path("", include("pages.urls.urls")),
-    path("accounts/", include("accounts.urls.urls")),
 ]

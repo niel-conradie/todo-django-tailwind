@@ -12,8 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 ## Environs
 # https://pypi.org/project/environs/#usage-with-django
 env = Env()
-# Read .env into os.environ
-env.read_env()
+env.read_env()  # Read .env into os.environ
 
 
 ## Deployment Security
@@ -62,6 +61,12 @@ DJANGO_APPS = [
     "django.contrib.sites",
 ]
 
+THIRD_PARTY_APPS = [
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+]
+
 LOCAL_APPS = [
     "accounts.apps.AccountsConfig",
     "pages.apps.PagesConfig",
@@ -70,13 +75,17 @@ LOCAL_APPS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#middleware
 DJANGO_MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",  # whitenoise requirement
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # requirement
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+]
+
+THIRD_PARTY_MIDDLEWARE = [
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 LOCAL_MIDDLEWARE = []
@@ -173,7 +182,46 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL = "accounts.CustomUser"
 
 
-## Authentication
-LOGIN_URL = "accounts:login"
-LOGIN_REDIRECT_URL = "pages:index"
-LOGOUT_REDIRECT_URL = "pages:index"
+## django-allauth
+# https://django-allauth.readthedocs.io/en/latest/installation.html#
+
+# https://django-allauth.readthedocs.io/en/latest/installation.html?highlight=backends
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+# https://docs.djangoproject.com/en/4.2/ref/settings/#login-redirect-url
+LOGIN_REDIRECT_URL = "/"
+
+# https://django-allauth.readthedocs.io/en/latest/configuration.html
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
+
+ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_UNIQUE_USERNAME = True
+
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_EMAIL_MAX_LENGTH = 254
+ACCOUNT_MAX_EMAIL_ADDRESSES = None
+ACCOUNT_EMAIL_CONFIRMATION_COOLDOWN = 180
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 3
+ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = None
+
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
+ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 300
+
+ACCOUNT_LOGOUT_REDIRECT_URL = "/"
+ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True
+
+ACCOUNT_SIGNUP_REDIRECT_URL = "/"
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = False
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
+
+ACCOUNT_PRESERVE_USERNAME_CASING = True
+ACCOUNT_PREVENT_ENUMERATION = True
+ACCOUNT_SESSION_REMEMBER = False

@@ -23,29 +23,23 @@
     {% if request.user.is_authenticated %}
     <div>
       <a
-        class="me-2 rounded-xl bg-green-500 p-2 text-gray-50"
-        href="{% url 'accounts:profile' request.user.id %}"
-      >
-        Profile
-      </a>
-      <a
         class="rounded-xl bg-red-500 p-2 text-gray-50"
-        href="{% url 'accounts:logout' %}"
+        href="{% url 'account_logout' %}"
       >
-        Log Out
+        Sign Out
       </a>
     </div>
     {% else %}
     <div>
       <a
         class="me-2 rounded-xl bg-green-500 p-2 text-gray-50"
-        href="{% url 'accounts:login' %}"
+        href="{% url 'account_login' %}"
       >
-        Log In
+        Sign In
       </a>
       <a
         class="rounded-xl bg-yellow-500 p-2 text-gray-50"
-        href="{% url 'accounts:signup' %}"
+        href="{% url 'account_signup' %}"
       >
         Sign Up
       </a>
