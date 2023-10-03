@@ -1,19 +1,19 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
 
-from pages.views import IndexPageView
+from app.views import IndexPageView
 
 
 class IndexPageTests(SimpleTestCase):
     def setUp(self):
-        url = reverse("pages:index")
+        url = reverse("app:index")
         self.response = self.client.get(url)
 
     def test_url_exists_at_correct_location(self):
         self.assertEqual(self.response.status_code, 200)
 
     def test_indexpage_template(self):
-        self.assertTemplateUsed(self.response, "pages/index.html")
+        self.assertTemplateUsed(self.response, "app/index.html")
 
     def test_indexpage_contains_correct_html(self):
         self.assertContains(self.response, "Index")

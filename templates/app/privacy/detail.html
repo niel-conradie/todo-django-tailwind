@@ -13,7 +13,7 @@
 {% block extra_head %}
 
 <!-- Meta -->
-<meta name="description" content="Privacy Page" />
+<meta name="description" content="Privacy Detail Page" />
 <meta name="author" content="Niel Conradie" />
 
 {% endblock extra_head %}
@@ -22,6 +22,12 @@
 
 {% block content %}
 <main>
-  <h1>Privacy</h1>
+  <h1>{{ object.title }}</h1>
+
+  <p>{{ object.description }}</p>
+
+  <p>{{ object.body }}</p>
+
+  <a href="{% url 'app:privacy_list' %}">Back</a>
 </main>
 {% endblock content %}

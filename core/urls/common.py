@@ -14,5 +14,4 @@ THIRD_PARTY_URLS = [
 
 LOCAL_URLS = [
     path("", include("app.urls.urls")),
-    path("", include("pages.urls.urls")),
 ]

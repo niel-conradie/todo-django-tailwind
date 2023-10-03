@@ -64,12 +64,12 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     "allauth",
     "allauth.account",
+    "django_extensions",
 ]
 
 LOCAL_APPS = [
     "accounts.apps.AccountsConfig",
     "app.apps.AppConfig",
-    "pages.apps.PagesConfig",
 ]
 
 # https://docs.djangoproject.com/en/4.2/ref/settings/#middleware
