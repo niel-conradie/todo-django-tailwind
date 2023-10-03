@@ -9,9 +9,10 @@ DJANGO_URLS = [
 ]
 
 THIRD_PARTY_URLS = [
-    path("accounts/", include("allauth.urls")),
+    path("", include("allauth.urls")),
 ]
 
 LOCAL_URLS = [
+    path("", include("app.urls.urls")),
     path("", include("pages.urls.urls")),
 ]

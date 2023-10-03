@@ -68,6 +68,7 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "accounts.apps.AccountsConfig",
+    "app.apps.AppConfig",
     "pages.apps.PagesConfig",
 ]
 
@@ -186,10 +187,10 @@ AUTH_USER_MODEL = "accounts.CustomUser"
 
 ## Authentication
 # https://docs.djangoproject.com/en/4.2/ref/settings/#login-url
-LOGIN_URL = "account_login"
+LOGIN_URL = "/login/"
 
 # https://docs.djangoproject.com/en/4.2/ref/settings/#login-redirect-url
-LOGIN_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/home/"
 
 # https://docs.djangoproject.com/en/4.2/ref/settings/#logout-redirect-url
 LOGOUT_REDIRECT_URL = "/"
