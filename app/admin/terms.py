@@ -1,9 +1,9 @@
 from django.contrib import admin
 
-from app.models.privacy import PrivacyModel
+from app.models.terms import TermsModel
 
 
-class PrivacyAdmin(admin.ModelAdmin):
+class TermsAdmin(admin.ModelAdmin):
     list_display = [
         "title",
         "status",
@@ -17,4 +17,4 @@ class PrivacyAdmin(admin.ModelAdmin):
     ]
 
 
-admin.site.register(PrivacyModel, PrivacyAdmin)
+admin.site.register(TermsModel, TermsAdmin)

@@ -13,7 +13,7 @@
 {% block extra_head %}
 
 <!-- Meta -->
-<meta name="description" content="Terms Page" />
+<meta name="description" content="Terms List Page" />
 <meta name="author" content="Niel Conradie" />
 
 {% endblock extra_head %}
@@ -23,5 +23,17 @@
 {% block content %}
 <main>
   <h1>Terms</h1>
+
+  {% for object in page_obj %}
+  <h2>
+    <a href="{% url 'app:terms_detail' object.slug %}">{{ object.title }}</a>
+    - {{ object.created.date }}
+  </h2>
+
+  <p>{{ object.description }}</p>
+
+  <hr />
+
+  {% endfor %}
 </main>
 {% endblock content %}
