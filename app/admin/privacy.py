@@ -1,11 +1,18 @@
 from django.contrib import admin
 
-from app.models.privacy import Privacy
+from app.models.privacy import PrivacyModel
 
 
-@admin.register(Privacy)
-class CustomPrivacyAdmin(admin.ModelAdmin):
-    list_display = (
-        "id",
+@admin.register(PrivacyModel)
+class PrivacyAdmin(admin.ModelAdmin):
+    list_display = [
         "title",
-    )
+        "status",
+        "modified",
+    ]
+    list_filter = [
+        "status",
+    ]
+    search_fields = [
+        "title",
+    ]

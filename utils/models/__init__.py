@@ -1,6 +1,6 @@
-from utils.models.uuid import ModelUUID
+from utils.models.uuid import UUIDModel
 
 
 __all__ = [
-    ModelUUID,
+    UUIDModel,
 ]

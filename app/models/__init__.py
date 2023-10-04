@@ -1,6 +1,6 @@
-from app.models.privacy import Privacy
+from app.models.privacy import PrivacyModel
 
 
 __all__ = [
-    Privacy,
+    PrivacyModel,
 ]

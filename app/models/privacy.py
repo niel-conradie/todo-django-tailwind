@@ -6,13 +6,18 @@ from django_extensions.db.models import (
     TitleSlugDescriptionModel,
 )
 
-from utils.models import ModelUUID
+from utils.models import UUIDModel
 
 
-class Privacy(ActivatorModel, TimeStampedModel, TitleSlugDescriptionModel, ModelUUID):
-    body = models.CharField(
-        max_length=200,
-    )
+class PrivacyModel(
+    ActivatorModel,
+    TimeStampedModel,
+    TitleSlugDescriptionModel,
+    UUIDModel,
+):
+    body = models.TextField()
 
     class Meta:
-        verbose_name_plural = "Privacies"
+        ordering = ("-modified",)
+        verbose_name = "Privacy"
+        verbose_name_plural = "Privacy"

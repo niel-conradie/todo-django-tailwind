@@ -1,9 +1,9 @@
 from django.contrib.auth.models import AbstractUser
 
-from utils.models import ModelUUID
+from utils.models import UUIDModel
 
 
-class CustomUser(AbstractUser, ModelUUID):
+class CustomUser(AbstractUser, UUIDModel):
     pass
 
     def __str__(self):

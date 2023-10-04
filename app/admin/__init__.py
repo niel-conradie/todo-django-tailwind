@@ -1,6 +1,6 @@
-from app.admin.privacy import CustomPrivacyAdmin
+from app.admin.privacy import PrivacyAdmin
 
 
 __all__ = [
-    CustomPrivacyAdmin,
+    PrivacyAdmin,
 ]

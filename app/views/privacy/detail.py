@@ -1,11 +1,11 @@
 from django.views.generic import DetailView
 
 
-from app.models import Privacy
+from app.models import PrivacyModel
 
 
 class PrivacyDetailView(DetailView):
-    model = Privacy
+    model = PrivacyModel
     template_name = "app/privacy/detail.html"
 
     def get_object(self):

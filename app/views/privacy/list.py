@@ -1,11 +1,11 @@
 from django.views.generic import ListView
 
 
-from app.models import Privacy
+from app.models import PrivacyModel
 
 
 class PrivacyListView(ListView):
-    model = Privacy
+    model = PrivacyModel
     template_name = "app/privacy/list.html"
     paginate_by = 10
 
