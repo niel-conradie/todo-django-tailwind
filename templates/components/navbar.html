@@ -1,49 +1,12 @@
-<header class="bg-gray-100 p-5 text-gray-900">
-  <div class="flex justify-between">
-    <a href="{% url 'app:home' %}">To Do</a>
-
-    {% if request.user.is_authenticated %}
-    <nav>
-      <ul class="flex justify-between gap-5">
-        <li>
-          <a href="#">Link</a>
-        </li>
-        <li>
-          <a href="#">Link</a>
-        </li>
-        <li>
-          <a href="#">Link</a>
-        </li>
-      </ul>
-    </nav>
-    {% endif %}
-
-    <!--  -->
-
-    {% if request.user.is_authenticated %}
-    <div>
-      <a
-        class="rounded-xl bg-red-500 p-2 text-gray-50"
-        href="{% url 'account_logout' %}"
-      >
-        Sign Out
-      </a>
-    </div>
-    {% else %}
-    <div>
-      <a
-        class="me-2 rounded-xl bg-green-500 p-2 text-gray-50"
-        href="{% url 'account_login' %}"
-      >
-        Sign In
-      </a>
-      <a
-        class="rounded-xl bg-yellow-500 p-2 text-gray-50"
-        href="{% url 'account_signup' %}"
-      >
-        Sign Up
-      </a>
-    </div>
-    {% endif %}
+<header class="">
+  {% if request.user.is_authenticated %}
+  <div>
+    <a class="" href="{% url 'account_logout' %}"> Sign Out </a>
   </div>
+  {% else %}
+  <div>
+    <a class="" href="{% url 'account_login' %}"> Sign In </a>
+    <a class="" href="{% url 'account_signup' %}"> Sign Up </a>
+  </div>
+  {% endif %}
 </header>

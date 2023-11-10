@@ -16,23 +16,15 @@ module.exports = {
     // || Additional styles
     extend: {
       fontFamily: {
-        poppins: ["Poppins", "sans-serif"],
+        primary: ["Poppins", "sans-serif"],
       },
-      // colors: {
-      //   spotify: {
-      //     50: "",
-      //     100: "",
-      //     200: "",
-      //     300: "",
-      //     400: "",
-      //     500: "",
-      //     600: "",
-      //     700: "",
-      //     800: "",
-      //     900: "",
-      //     950: "",
-      //   },
-      // },
+      colors: {
+        text: "#f3f4f6",
+        background: "#0f172a",
+        primary: "#000000",
+        secondary: "#000000",
+        accent: "#000000",
+      },
     },
   },
 

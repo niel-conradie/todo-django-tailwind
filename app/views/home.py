@@ -1,6 +1,18 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import TemplateView
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
+
+from app.models import TaskModel
 
 
-class HomePageView(LoginRequiredMixin, TemplateView):
-    template_name = "app/home.html"
+@login_required
+def home_page_view(request):
+    tasks = TaskModel.objects.filter(created_by=request.user).order_by(
+        "-status",
+        "time_start",
+        "time_end",
+    )
+
+    context = {
+        "tasks": tasks,
+    }
+    return render(request, "app/home.html", context)

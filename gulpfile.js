@@ -6,7 +6,6 @@ const babel = require("gulp-babel");
 const concat = require("gulp-concat");
 const postcss = require("gulp-postcss");
 const rename = require("gulp-rename");
-const sourcemaps = require("gulp-sourcemaps");
 const terser = require("gulp-terser");
 const exec = require("child_process").exec;
 
@@ -23,9 +22,7 @@ function cssTask() {
 // |  CSS Build Task
 function cssBuildTask() {
   return src("static/css/main.min.css")
-    .pipe(sourcemaps.init({ loadMaps: true }))
     .pipe(postcss([autoprefixer(), cssnano()]))
-    .pipe(sourcemaps.write(".", { addComment: false }))
     .pipe(dest("static/css"));
 }
 
@@ -33,9 +30,7 @@ function cssBuildTask() {
 function jsTask() {
   return src("assets/js/**/*.js")
     .pipe(concat("main.js"))
-    .pipe(sourcemaps.init({ loadMaps: true }))
     .pipe(rename({ suffix: ".min" }))
-    .pipe(sourcemaps.write(".", { addComment: false }))
     .pipe(dest("static/js"));
 }
 
@@ -43,11 +38,9 @@ function jsTask() {
 function jsBuildTask() {
   return src("assets/js/**/*.js")
     .pipe(concat("main.js"))
-    .pipe(sourcemaps.init({ loadMaps: true }))
     .pipe(babel({ presets: ["@babel/preset-env"] }))
     .pipe(terser())
     .pipe(rename({ suffix: ".min" }))
-    .pipe(sourcemaps.write(".", { addComment: false }))
     .pipe(dest("static/js"));
 }
 

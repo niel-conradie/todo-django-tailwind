@@ -6,7 +6,7 @@
 
 <!--  -->
 
-{% block head_title %}500 Server Error{% endblock head_title %}
+{% block head_title %}{% trans "500 Server Error" %}{% endblock head_title %}
 
 <!--  -->
 
@@ -22,7 +22,7 @@
 
 {% block content %}
 <main>
-  <h1>500 Server Error</h1>
-  <p>Looks like something went wrong!</p>
+  <h1>{% trans "500 Server Error" %}</h1>
+  <p>{% trans "Looks like something went wrong!" %}</p>
 </main>
 {% endblock content %}

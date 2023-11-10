@@ -1,20 +1,24 @@
 from django.contrib import admin
 
-from app.models.terms import TermsModel
+from app.models import TaskModel
 
 
-class TermsAdmin(admin.ModelAdmin):
+class TaskAdmin(admin.ModelAdmin):
     list_display = [
         "title",
+        "day",
         "status",
-        "modified",
+        "created_at",
     ]
+
     list_filter = [
+        "day",
         "status",
     ]
+
     search_fields = [
         "title",
     ]
 
 
-admin.site.register(TermsModel, TermsAdmin)
+admin.site.register(TaskModel, TaskAdmin)

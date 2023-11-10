@@ -9,6 +9,7 @@ class UUIDModel(models.Model):
         _("id"),
         primary_key=True,
         default=uuid.uuid4,
+        editable=False,
     )
 
     class Meta:

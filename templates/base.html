@@ -33,11 +33,11 @@
 
     {% block fonts %}
 
-    <!-- Poppins -->
+    <!-- Poppins | 400 500 600 700 -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -70,7 +70,7 @@
 
     {% endblock css %}
   </head>
-  <body class="bg-gray-900 font-poppins text-gray-100">
+  <body class="bg-background font-primary text-text">
     {% block body %}
     <!--  -->
 
@@ -79,23 +79,6 @@
     {% include "components/navbar.html" %}
     <!--  -->
     {% endblock header %}
-
-    <!--  -->
-
-    {% block messages %}
-    <!--  -->
-    {% if messages %}
-    <div>
-      <strong>Messages:</strong>
-      <ul>
-        {% for message in messages %}
-        <li>{{message}}</li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
-    <!--  -->
-    {% endblock messages %}
 
     <!--  -->
 

@@ -7,7 +7,7 @@ from .common import *
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # https://docs.djangoproject.com/en/4.2/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
 
 ## Application definition
@@ -17,7 +17,7 @@ DEVELOPMENT_APPS = [
     "django_browser_reload",
 ]
 
-INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS + DEVELOPMENT_APPS
+INSTALLED_APPS += DEVELOPMENT_APPS
 
 # https://docs.djangoproject.com/en/4.2/ref/settings/#middleware
 DEVELOPMENT_MIDDLEWARE = [
@@ -25,13 +25,7 @@ DEVELOPMENT_MIDDLEWARE = [
     "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
-MIDDLEWARE = (
-    DJANGO_MIDDLEWARE
-    + THIRD_PARTY_MIDDLEWARE
-    + LOCAL_MIDDLEWARE
-    + DEVELOPMENT_MIDDLEWARE
-)
-
+MIDDLEWARE += DEVELOPMENT_MIDDLEWARE
 
 # https://docs.djangoproject.com/en/4.2/ref/settings/#root-urlconf
 ROOT_URLCONF = "core.urls.development"

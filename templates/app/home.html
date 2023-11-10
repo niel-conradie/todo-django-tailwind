@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 <!--  -->
 
@@ -6,7 +6,7 @@
 
 <!--  -->
 
-{% block head_title %}Welcome{% endblock head_title %}
+{% block head_title %}{% trans "Welcome" %}{% endblock head_title %}
 
 <!--  -->
 
@@ -21,7 +21,131 @@
 <!--  -->
 
 {% block content %}
-<main>
-  <h1>Home</h1>
+<main class="main">
+  <div class="home-header">
+    <div class="home-welcome">
+      <h1 class="home-welcome__title">Welcome, {{ request.user.username }}</h1>
+      <div class="home-welcome__time">{% now "l - h:i a" %}</div>
+    </div>
+
+    <div class="home-options">
+      <a class="home-options__btn" href="{% url 'app:task_create' %}">
+        Create
+      </a>
+      <a class="home-options__btn" href="{% url 'app:task_reset' %}">Reset</a>
+    </div>
+  </div>
+
+  <div class="home-tasks">
+    <div class="day-task">
+      <h2 class="day-task__title">Monday</h2>
+      <br />
+      {% for task in tasks %}
+      <!--  -->
+      {% if task.day.title.lower == 'monday' %}
+      <!--  -->
+      {% include 'components/task.html' %}
+      <!--  -->
+      {% endif %}
+      <!--  -->
+      {% endfor %}
+    </div>
+
+    <hr />
+
+    <div>
+      <p>Tuesday</p>
+      <br />
+      {% for task in tasks %}
+      <!--  -->
+      {% if task.day.title.lower == 'tuesday' %}
+      <!--  -->
+      {% include 'components/task.html' %}
+      <!--  -->
+      {% endif %}
+      <!--  -->
+      {% endfor %}
+    </div>
+
+    <hr />
+
+    <div>
+      <p>Wednesday</p>
+      <br />
+      {% for task in tasks %}
+      <!--  -->
+      {% if task.day.title.lower == 'wednesday' %}
+      <!--  -->
+      {% include 'components/task.html' %}
+      <!--  -->
+      {% endif %}
+      <!--  -->
+      {% endfor %}
+    </div>
+
+    <hr />
+
+    <div>
+      <p>Thursday</p>
+      <br />
+      {% for task in tasks %}
+      <!--  -->
+      {% if task.day.title.lower == 'thursday' %}
+      <!--  -->
+      {% include 'components/task.html' %}
+      <!--  -->
+      {% endif %}
+      <!--  -->
+      {% endfor %}
+    </div>
+
+    <hr />
+
+    <div>
+      <p>Friday</p>
+      <br />
+      {% for task in tasks %}
+      <!--  -->
+      {% if task.day.title.lower == 'friday' %}
+      <!--  -->
+      {% include 'components/task.html' %}
+      <!--  -->
+      {% endif %}
+      <!--  -->
+      {% endfor %}
+    </div>
+
+    <hr />
+
+    <div>
+      <p>Saturday</p>
+      <br />
+      {% for task in tasks %}
+      <!--  -->
+      {% if task.day.title.lower == 'saturday' %}
+      <!--  -->
+      {% include 'components/task.html' %}
+      <!--  -->
+      {% endif %}
+      <!--  -->
+      {% endfor %}
+    </div>
+
+    <hr />
+
+    <div>
+      <p>Sunday</p>
+      <br />
+      {% for task in tasks %}
+      <!--  -->
+      {% if task.day.title.lower == 'sunday' %}
+      <!--  -->
+      {% include 'components/task.html' %}
+      <!--  -->
+      {% endif %}
+      <!--  -->
+      {% endfor %}
+    </div>
+  </div>
 </main>
 {% endblock content %}

@@ -1,0 +1,21 @@
+{% load i18n %}
+
+<!--  -->
+
+<ul>
+  <li>
+    <div>
+      <p>Task: {{ task.title.title }}</p>
+      <p>Time Start: {{ task.time_start }}</p>
+      <p>Time End: {{ task.time_end }}</p>
+      <p>
+        Status: {% if task.status == True %}Active{% else %}Inactive{% endif %}
+      </p>
+      <a href="{% url 'app:task_update' task.day task.id %}">Update</a> |
+      <a href="{% url 'app:task_delete' task.day task.id %}">Delete</a> |
+      <a href="{% url 'app:task_convert' task.id %}">Convert</a>
+    </div>
+  </li>
+</ul>
+
+<br />

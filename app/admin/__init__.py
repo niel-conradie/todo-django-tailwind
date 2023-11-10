@@ -1,8 +1,8 @@
-from app.admin.privacy import PrivacyAdmin
-from app.admin.terms import TermsAdmin
+from app.admin.day import DayAdmin
+from app.admin.task import TaskAdmin
 
 
 __all__ = [
-    PrivacyAdmin,
-    TermsAdmin,
+    DayAdmin,
+    TaskAdmin,
 ]

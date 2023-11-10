@@ -1,7 +1,5 @@
 # https://docs.djangoproject.com/en/4.2/ref/settings/
 
-import os
-
 from pathlib import Path
 
 from environs import Env
@@ -14,7 +12,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 ## Environs
 # https://pypi.org/project/environs/#usage-with-django
 env = Env()
-env.read_env()  # Read .env into os.environ
+# Read .env into os.environ
+env.read_env()
 
 
 ## Deployment Security
@@ -66,7 +65,6 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     "allauth",
     "allauth.account",
-    "django_extensions",
 ]
 
 LOCAL_APPS = [
@@ -74,10 +72,12 @@ LOCAL_APPS = [
     "app.apps.AppConfig",
 ]
 
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+
 # https://docs.djangoproject.com/en/4.2/ref/settings/#middleware
 DJANGO_MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",  # requirement
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # whitenoise requirement
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -92,6 +92,8 @@ THIRD_PARTY_MIDDLEWARE = [
 
 LOCAL_MIDDLEWARE = []
 
+MIDDLEWARE = DJANGO_MIDDLEWARE + THIRD_PARTY_MIDDLEWARE + LOCAL_MIDDLEWARE
+
 # https://docs.djangoproject.com/en/4.2/ref/settings/#templates
 TEMPLATES = [
     {
@@ -104,7 +106,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                "core.context_processor.global_context.global_context",
+                "core.context_processor.global_context",
             ],
         },
     },
@@ -174,7 +176,11 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # http://whitenoise.evans.io/en/stable/django.html#add-compression-and-caching-support
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 
 
 ## Default primary key field type
@@ -189,7 +195,7 @@ AUTH_USER_MODEL = "accounts.CustomUser"
 
 ## Authentication
 # https://docs.djangoproject.com/en/4.2/ref/settings/#login-url
-LOGIN_URL = "/login/"
+LOGIN_URL = "/account/login/"
 
 # https://docs.djangoproject.com/en/4.2/ref/settings/#login-redirect-url
 LOGIN_REDIRECT_URL = "/home/"
@@ -199,15 +205,13 @@ LOGOUT_REDIRECT_URL = "/"
 
 
 ## django-allauth
-# https://django-allauth.readthedocs.io/en/latest/installation.html#
-
-# https://django-allauth.readthedocs.io/en/latest/installation.html?highlight=backends
+# https://django-allauth.readthedocs.io/en/latest/installation/quickstart.html
 AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
     "allauth.account.auth_backends.AuthenticationBackend",
 )
 
-# https://django-allauth.readthedocs.io/en/latest/configuration.html
+# https://django-allauth.readthedocs.io/en/latest/account/configuration.html
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = LOGIN_REDIRECT_URL
 

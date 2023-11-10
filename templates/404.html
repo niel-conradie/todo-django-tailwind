@@ -6,7 +6,7 @@
 
 <!--  -->
 
-{% block head_title %}404 Page not found{% endblock head_title %}
+{% block head_title %}{% trans "404 Page not found" %}{% endblock head_title %}
 
 <!--  -->
 
@@ -22,7 +22,7 @@
 
 {% block content %}
 <main>
-  <h1>404</h1>
-  <p>Page not found!</p>
+  <h1>{% trans "404" %}</h1>
+  <p>{% trans "Page not found!" %}</p>
 </main>
 {% endblock content %}

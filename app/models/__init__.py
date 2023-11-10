@@ -1,8 +1,8 @@
-from app.models.privacy import PrivacyModel
-from app.models.terms import TermsModel
+from app.models.day import DayModel
+from app.models.task import TaskModel
 
 
 __all__ = [
-    PrivacyModel,
-    TermsModel,
+    DayModel,
+    TaskModel,
 ]

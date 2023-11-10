@@ -6,7 +6,7 @@
 
 <!--  -->
 
-{% block head_title %}Forbidden (403){% endblock head_title %}
+{% block head_title %}{% trans "Forbidden (403)" %}{% endblock head_title %}
 
 <!--  -->
 
@@ -22,7 +22,7 @@
 
 {% block content %}
 <main>
-  <h1>Forbidden (403)</h1>
-  <p>CSRF verification failed. Request aborted.</p>
+  <h1>{% trans "Forbidden (403)" %}</h1>
+  <p>{% trans "CSRF verification failed. Request aborted." %}</p>
 </main>
 {% endblock content %}
