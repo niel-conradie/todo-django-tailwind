@@ -35,49 +35,50 @@
     muted
   >
     <source src="{% static 'videos/particles.mp4' %}" type="video/mp4" />
-    Your browser does not support the video tag.
+    {% trans 'Your browser does not support the video tag.' %}
   </video>
 
   <div class="flex min-h-screen items-center justify-center">
-    <div class="flex gap-7">
+    <div class="grid grid-cols-2 gap-5">
       {% if request.user.is_authenticated %}
       <a
-        class="flex items-center justify-center rounded-lg bg-gradient-to-l from-blue-500 via-blue-600 to-blue-700 px-5 py-2.5 hover:bg-gradient-to-r focus:outline-none focus:ring-4 focus:ring-blue-400"
+        class="flex items-center justify-center rounded-lg bg-blue-600 px-5 py-2.5 hover:bg-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-400"
         href="{% url 'account_login' %}"
       >
-        <span class="text-xl font-medium text-gray-100 md:text-2xl lg:text-3xl">
-          Home
+        <span class="text-lg font-medium text-gray-100 md:text-xl lg:text-2xl">
+          {% trans 'Home' %}
         </span>
       </a>
       <a
-        class="flex items-center justify-center rounded-lg bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 px-5 py-2.5 hover:bg-gradient-to-l focus:outline-none focus:ring-4 focus:ring-blue-400"
+        class="flex items-center justify-center rounded-lg bg-blue-600 px-5 py-2.5 hover:bg-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-400"
         href="{% url 'account_logout' %}"
       >
-        <span class="text-xl font-medium text-gray-100 md:text-2xl lg:text-3xl">
-          Sign Out
+        <span class="text-lg font-medium text-gray-100 md:text-xl lg:text-2xl">
+          {% trans 'Sign Out' %}
         </span>
       </a>
       {% else %}
       <a
-        class="flex items-center justify-center rounded-lg bg-gradient-to-l from-blue-500 via-blue-600 to-blue-700 px-5 py-2.5 hover:bg-gradient-to-r focus:outline-none focus:ring-4 focus:ring-blue-400"
+        class="flex items-center justify-center rounded-lg bg-blue-600 px-5 py-2.5 hover:bg-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-400"
         href="{% url 'account_login' %}"
       >
-        <span class="text-xl font-medium text-gray-100 md:text-2xl lg:text-3xl">
-          Sign In
+        <span class="text-lg font-medium text-gray-100 md:text-2xl">
+          {% trans 'Sign In' %}
         </span>
       </a>
       <a
-        class="flex items-center justify-center rounded-lg bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 px-5 py-2.5 hover:bg-gradient-to-l focus:outline-none focus:ring-4 focus:ring-blue-400"
+        class="flex items-center justify-center rounded-lg bg-blue-600 px-5 py-2.5 hover:bg-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-400"
         href="{% url 'account_signup' %}"
       >
-        <span class="text-xl font-medium text-gray-100 md:text-2xl lg:text-3xl">
-          Sign Up
+        <span class="text-lg font-medium text-gray-100 md:text-2xl">
+          {% trans 'Sign Up' %}
         </span>
       </a>
       {% endif %}
     </div>
   </div>
 </main>
+
 {% endblock content %}
 
 <!--  -->

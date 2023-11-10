@@ -1,3 +1,9 @@
-<footer>
-  <p>&copy; {% now 'Y' %} | To Do</p>
+{% load i18n %}
+
+<footer
+  class="fixed bottom-0 min-w-full border-t border-green-500 bg-slate-800"
+>
+  <div class="flex h-8 items-center justify-center">
+    <p class="font-medium text-gray-100">&copy; {% now 'Y' %} To Do</p>
+  </div>
 </footer>

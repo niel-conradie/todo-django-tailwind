@@ -21,18 +21,16 @@
 <!--  -->
 
 {% block content %}
-<main class="main">
-  <div class="home-header">
-    <div class="home-welcome">
-      <h1 class="home-welcome__title">Welcome, {{ request.user.username }}</h1>
-      <div class="home-welcome__time">{% now "l - h:i a" %}</div>
+<main class="pt-12">
+  <div>
+    <div>
+      <h1>Welcome, {{ request.user.username }}</h1>
+      <div>{% now "l - h:i a" %}</div>
     </div>
 
-    <div class="home-options">
-      <a class="home-options__btn" href="{% url 'app:task_create' %}">
-        Create
-      </a>
-      <a class="home-options__btn" href="{% url 'app:task_reset' %}">Reset</a>
+    <div>
+      <a href="{% url 'app:task_create' %}">Create</a>
+      <a href="{% url 'app:task_reset' %}">Reset</a>
     </div>
   </div>
 
