@@ -2,40 +2,80 @@
 
 <!--  -->
 
-{% load i18n %}
+{% block head_title %}Confirm Access{% endblock head_title %}
 
 <!--  -->
 
-{% block head_title %}{% trans "Confirm Access" %}{% endblock head_title %}
+{% block extra_head %}
+
+<!-- Meta -->
+<meta name="description" content="Reauthenticate Page" />
+<meta name="author" content="Niel Conradie" />
+
+{% endblock extra_head %}
 
 <!--  -->
 
 {% block content %}
-<main>
-  <h1>{% trans "Confirm Access" %}</h1>
+<main class="py-16">
+  <div class="mt-14 flex justify-center px-4 md:mt-28">
+    <div class="w-80">
+      <div
+        class="mb-4 rounded-lg border border-border-light bg-background-secondary-light p-4 shadow-md shadow-shadow-light dark:border-border-dark dark:bg-background-secondary-dark dark:shadow-none"
+      >
+        <h1 class="mb-4 mt-0 text-center text-2xl font-medium">
+          Confirm Access
+        </h1>
 
-  <p>
-    {% blocktrans %}
-    <!--  -->
-    To safeguard the security of your account, please enter your password:
-    <!--  -->
-    {% endblocktrans %}
-  </p>
+        <hr class="mb-4 border-border-light dark:border-border-dark" />
 
-  <form method="POST" action="{% url 'account_reauthenticate' %}">
-    {% csrf_token %}
+        <p class="mb-4 text-center">Please enter your password below:</p>
 
-    <div>{{ form.as_p }}</div>
+        <form method="POST" action="{% url 'account_reauthenticate' %}">
+          {% csrf_token %}
 
-    {% if redirect_field_value %}
-    <input
-      type="hidden"
-      name="{{ redirect_field_name }}"
-      value="{{ redirect_field_value }}"
-    />
-    {% endif %}
+          <!--  -->
 
-    <button type="submit">{% trans "Confirm" %}</button>
-  </form>
+          {% if form.errors %}
+          <div
+            class="mb-4 rounded-lg border border-danger-light border-opacity-25 bg-danger-light bg-opacity-20 p-4 dark:border-opacity-40 dark:bg-danger-dark dark:bg-opacity-20"
+          >
+            {% for field in form %}
+            <!--  -->
+            {% for error in field.errors %}
+            <p class="text-sm">{{ error }}</p>
+            {% endfor %}
+            <!--  -->
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          <div class="mb-4">
+            <label
+              class="fixed left-[9999px]"
+              for="{{ form.password.auto_id }}"
+            >
+              {{ form.password.name }}
+            </label>
+            {{ form.password }}
+          </div>
+
+          {% if redirect_field_value %}
+          <input
+            type="hidden"
+            name="{{ redirect_field_name }}"
+            value="{{ redirect_field_value }}"
+          />
+          {% endif %}
+
+          <button class="btn-primary w-full" type="submit">
+            <span class="btn-text text-sm">Confirm</span>
+          </button>
+        </form>
+      </div>
+
+      {% include 'account/snippets/terms_privacy.html' %}
+    </div>
+  </div>
 </main>
 {% endblock content %}

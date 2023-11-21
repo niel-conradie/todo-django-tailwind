@@ -21,8 +21,17 @@
 <!--  -->
 
 {% block content %}
-<main>
-  <h1>{% trans "404" %}</h1>
-  <p>{% trans "Page not found!" %}</p>
+<main class="py-16">
+  <div class="mt-20 flex justify-center px-4 md:mt-40">
+    <div
+      class="border-border-light dark:border-border-dark shadow-shadow-light rounded-lg border bg-background-secondary-light p-6 shadow-md dark:bg-background-secondary-dark dark:shadow-none"
+    >
+      <h1 class="mb-8 mt-2 text-center font-medium">{% trans "404" %}</h1>
+
+      <hr class="border-border-light dark:border-border-dark" />
+
+      <p class="mt-5 text-center">{% trans "Page not found!" %}</p>
+    </div>
+  </div>
 </main>
 {% endblock content %}

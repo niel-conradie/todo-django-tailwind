@@ -2,18 +2,12 @@
 
 <!--  -->
 
-{% load i18n %}
+{% block head_title %}Sign Up Closed{% endblock %}
 
-<!--  -->
-
-{% block head_title %}{% trans "Sign Up Closed" %}{% endblock %}
-
-<!--  -->
-
-{% block extra_head %}
+<!--  -->1 {% block extra_head %}
 
 <!-- Meta -->
-<meta name="description" content="Sign Up Closed Page" />
+<meta name="description" content="Signup Closed Page" />
 <meta name="author" content="Niel Conradie" />
 
 {% endblock extra_head %}
@@ -21,9 +15,23 @@
 <!--  -->
 
 {% block content %}
-<main>
-  <h1>{% trans "Sign Up Closed" %}</h1>
+<main class="py-16">
+  <div class="mt-14 flex justify-center px-4 md:mt-28">
+    <div class="w-80">
+      <div
+        class="mb-4 rounded-lg border border-border-light bg-background-secondary-light p-4 shadow-md shadow-shadow-light dark:border-border-dark dark:bg-background-secondary-dark dark:shadow-none"
+      >
+        <h1 class="mb-4 mt-0 text-center text-2xl font-medium">
+          Sign Up Closed
+        </h1>
 
-  <p>{% trans "We are sorry, but the sign up is currently closed." %}</p>
+        <hr class="mb-4 border-border-light dark:border-border-dark" />
+
+        <p>We are sorry, but the sign up is currently closed.</p>
+      </div>
+
+      {% include 'account/snippets/terms_privacy.html' %}
+    </div>
+  </div>
 </main>
 {% endblock content %}

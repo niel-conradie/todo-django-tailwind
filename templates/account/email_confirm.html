@@ -2,11 +2,11 @@
 
 <!--  -->
 
-{% load account %} {% load i18n %}
+{% load account %}
 
 <!--  -->
 
-{% block head_title %}{% trans "Confirm E-mail" %}{% endblock head_title %}
+{% block head_title %}Confirm E-mail{% endblock head_title %}
 
 <!--  -->
 
@@ -21,53 +21,76 @@
 <!--  -->
 
 {% block content %}
-<main>
-  <h1>{% trans "Confirm Email Address" %}</h1>
+<main class="py-16">
+  <div class="mt-14 flex justify-center px-4 md:mt-28">
+    <div class="w-80">
+      <div
+        class="mb-4 rounded-lg border border-border-light bg-background-secondary-light p-4 shadow-md shadow-shadow-light dark:border-border-dark dark:bg-background-secondary-dark dark:shadow-none"
+      >
+        <h1 class="mb-4 mt-0 text-center text-2xl font-medium">
+          Confirm Email Address
+        </h1>
 
-  {% if confirmation %}
-  <!--  -->
-  {% user_display confirmation.email_address.user as user_display %}
-  <!--  -->
-  {% if can_confirm %}
-  <p>
-    {% blocktrans with confirmation.email_address.email as email %}
-    <!--  -->
-    Please confirm that <a href="mailto:{{ email }}">{{ email }}</a> is an email
-    address for user {{ user_display }}.
-    <!--  -->
-    {% endblocktrans %}
-  </p>
+        <hr class="mb-4 border-border-light dark:border-border-dark" />
 
-  <form
-    method="post"
-    action="{% url 'account_confirm_email' confirmation.key %}"
-  >
-    {% csrf_token %}
+        {% if confirmation %}
+        <!--  -->
+        {% user_display confirmation.email_address.user as user_display %}
+        <!--  -->
+        {% if can_confirm %}
+        <p class="mb-4">
+          Please confirm that
+          <a
+            class="rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 dark:focus:ring-primary-500"
+            href="mailto:{{ email }}"
+          >
+            <span
+              class="font-medium text-primary-500 underline-offset-2 hover:text-primary-600 hover:underline dark:text-primary-500 dark:hover:text-primary-400"
+            >
+              {{ email }}
+            </span>
+          </a>
+          is an email address for user {{ user_display }}.
+        </p>
 
-    <button type="submit">{% trans 'Confirm' %}</button>
-  </form>
-  {% else %}
-  <p>
-    {% blocktrans %}
-    <!--  -->
-    Unable to confirm {{ email }} because it is already confirmed by a different
-    account.
-    <!--  -->
-    {% endblocktrans %}
-  </p>
-  {% endif %}
-  <!--  -->
-  {% else %}
-  <!--  -->
-  {% url 'account_email' as email_url %}
-  <p>
-    {% blocktrans %}
-    <!--  -->
-    This email confirmation link expired or is invalid. Please
-    <a href="{{ email_url }}">issue a new email confirmation request</a>.
-    <!--  -->
-    {% endblocktrans %}
-  </p>
-  {% endif %}
+        <form
+          method="POST"
+          action="{% url 'account_confirm_email' confirmation.key %}"
+        >
+          {% csrf_token %}
+
+          <button class="btn-primary w-full" type="submit">
+            <span class="btn-text text-sm">Continue</span>
+          </button>
+        </form>
+        {% else %}
+        <p class="mb-4">
+          Unable to confirm {{ email }} because it is already confirmed by a
+          different account.
+        </p>
+        {% endif %}
+        <!--  -->
+        {% else %}
+        <!--  -->
+        {% url 'account_email' as email_url %}
+        <p class="mb-4">This email confirmation link expired or is invalid.</p>
+        <p>
+          <a
+            class="rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 dark:focus:ring-primary-500"
+            href="{{ email_url }}"
+          >
+            <span
+              class="font-medium text-primary-500 underline-offset-2 hover:text-primary-600 hover:underline dark:text-primary-500 dark:hover:text-primary-400"
+            >
+              Request a new confirmation email.
+            </span>
+          </a>
+        </p>
+        {% endif %}
+      </div>
+
+      {% include 'account/snippets/terms_privacy.html' %}
+    </div>
+  </div>
 </main>
 {% endblock content %}

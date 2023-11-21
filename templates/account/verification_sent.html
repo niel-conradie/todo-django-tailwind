@@ -2,18 +2,14 @@
 
 <!--  -->
 
-{% load i18n %}
-
-<!--  -->
-
-{% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
+{% block head_title %}Verify E-mail Address{% endblock %}
 
 <!--  -->
 
 {% block extra_head %}
 
 <!-- Meta -->
-<meta name="description" content="Verification Email Sent Page" />
+<meta name="description" content="Verification Sent Page" />
 <meta name="author" content="Niel Conradie" />
 
 {% endblock extra_head %}
@@ -21,33 +17,38 @@
 <!--  -->
 
 {% block content %}
-<main>
-  <h1>{% trans "Verify Your E-mail Address" %}</h1>
+<main class="py-16">
+  <div class="mt-14 flex justify-center px-4 md:mt-28">
+    <div class="w-80">
+      <div
+        class="mb-4 rounded-lg border border-border-light bg-background-secondary-light p-4 shadow-md shadow-shadow-light dark:border-border-dark dark:bg-background-secondary-dark dark:shadow-none"
+      >
+        <h1 class="mb-4 mt-0 text-center text-2xl font-medium">
+          Verify E-mail Address
+        </h1>
 
-  <p>
-    {% blocktrans %}
-    <!--  -->
-    We have sent an e-mail to you for verification.
-    <!--  -->
-    {% endblocktrans %}
-  </p>
+        <hr class="mb-4 border-border-light dark:border-border-dark" />
 
-  <p>
-    {% blocktrans %}
-    <!--  -->
-    Follow the link provided to finalize the signup process. If you do not see
-    the verification e-mail in your main inbox, check your spam folder.
-    <!--  -->
-    {% endblocktrans %}
-  </p>
+        <p class="mb-4">We have sent an e-mail to you for verification.</p>
 
-  <p>
-    {% blocktrans %}
-    <!--  -->
-    Please contact us if you do not receive the verification e-mail within a few
-    minutes.
-    <!--  -->
-    {% endblocktrans %}
-  </p>
+        <p class="mb-4">
+          Follow the link provided to finalize the signup process. If you do not
+          see the verification e-mail in your main inbox, check your spam
+          folder.
+        </p>
+
+        <p class="mb-4">
+          Please contact us if you do not receive the verification e-mail within
+          a few minutes.
+        </p>
+
+        <a class="btn-primary w-full" href="{% url 'account_login' %}">
+          <span class="btn-text text-sm">Sign In</span>
+        </a>
+      </div>
+
+      {% include 'account/snippets/terms_privacy.html' %}
+    </div>
+  </div>
 </main>
 {% endblock content %}

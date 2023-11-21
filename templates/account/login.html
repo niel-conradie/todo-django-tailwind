@@ -2,18 +2,14 @@
 
 <!--  -->
 
-{% load i18n %}
-
-<!--  -->
-
-{% block head_title %}{% trans "Sign In" %}{% endblock head_title %}
+{% block head_title %}Sign In{% endblock head_title %}
 
 <!--  -->
 
 {% block extra_head %}
 
 <!-- Meta -->
-<meta name="description" content="Sign In Page" />
+<meta name="description" content="Login Page" />
 <meta name="author" content="Niel Conradie" />
 
 {% endblock extra_head %}
@@ -21,36 +17,79 @@
 <!--  -->
 
 {% block content %}
-<main>
-  <h1>{% trans "Sign In" %}</h1>
+<main class="py-16">
+  <div class="mt-14 flex justify-center px-4 md:mt-28">
+    <div class="w-80">
+      <div
+        class="mb-4 rounded-lg border border-border-light bg-background-secondary-light p-4 shadow-md shadow-shadow-light dark:border-border-dark dark:bg-background-secondary-dark dark:shadow-none"
+      >
+        <h1 class="mb-4 mt-0 text-center text-2xl font-medium">Sign In</h1>
 
-  <p>
-    {% blocktrans %}
-    <!--  -->
-    Don't have an account? Then please
-    <a href="{{ signup_url }}">sign up</a>.
-    <!--  -->
-    {% endblocktrans %}
-  </p>
+        <hr class="mb-4 border-border-light dark:border-border-dark" />
 
-  <form method="post" action="{% url 'account_login' %}">
-    {% csrf_token %}
+        <form method="POST" action="{% url 'account_login' %}">
+          {% csrf_token %}
 
-    <div>{{ form.as_p }}</div>
+          <!--  -->
 
-    {% if redirect_field_value %}
-    <input
-      type="hidden"
-      name="{{ redirect_field_name }}"
-      value="{{ redirect_field_value }}"
-    />
-    {% endif %}
+          {% if form.non_field_errors %}
+          <div
+            class="mb-4 rounded-lg border border-danger-light border-opacity-25 bg-danger-light bg-opacity-20 p-4 dark:border-opacity-40 dark:bg-danger-dark dark:bg-opacity-20"
+          >
+            {% for error in form.non_field_errors %}
+            <p class="text-sm">{{ error }}</p>
+            {% endfor %}
+          </div>
+          {% endif %}
 
-    <button type="submit">{% trans "Sign In" %}</button>
+          <div class="mb-4">
+            <label class="fixed left-[9999px]" for="{{ form.login.auto_id }}">
+              {{ form.login.name }}
+            </label>
+            {{ form.login }}
+          </div>
 
-    <a href="{% url 'account_reset_password' %}">
-      {% trans "Forgot Password?" %}
-    </a>
-  </form>
+          <div class="mb-4">
+            <label
+              class="fixed left-[9999px]"
+              for="{{ form.password.auto_id }}"
+            >
+              {{ form.password.name }}
+            </label>
+            {{ form.password }}
+          </div>
+
+          {% if redirect_field_value %}
+          <input
+            type="hidden"
+            name="{{ redirect_field_name }}"
+            value="{{ redirect_field_value }}"
+          />
+          {% endif %}
+
+          <button class="btn-primary w-full" type="submit">
+            <span class="btn-text text-sm">Confirm</span>
+          </button>
+        </form>
+      </div>
+
+      <div
+        class="mb-4 rounded-lg border border-border-light px-24 py-4 shadow-md shadow-shadow-light dark:border-border-dark dark:shadow-none"
+      >
+        <a
+          class="flex items-center justify-center rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 dark:focus:ring-primary-500"
+          href="{% url 'account_reset_password' %}"
+        >
+          <span
+            class="text-sm font-medium text-primary-500 underline-offset-2 hover:text-primary-600 hover:underline dark:text-primary-500 dark:hover:text-primary-400"
+          >
+            Forgot Password?
+          </span>
+        </a>
+      </div>
+
+      {% include 'account/snippets/terms_privacy.html' %}
+    </div>
+  </div>
 </main>
 {% endblock content %}

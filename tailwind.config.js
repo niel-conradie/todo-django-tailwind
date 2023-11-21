@@ -19,11 +19,36 @@ module.exports = {
         primary: ["Poppins", "sans-serif"],
       },
       colors: {
-        text: "#f3f4f6",
-        background: "#0f172a",
-        primary: "#000000",
-        secondary: "#000000",
-        accent: "#000000",
+        text: {
+          light: "hsl(213, 13%, 14%)",
+          dark: "hsl(210, 67%, 96%)",
+        },
+        background: {
+          "primary-light": "hsl(0, 0%, 100%)",
+          "secondary-light": "hsl(210, 29%, 97%)",
+          "primary-dark": "hsl(216, 28%, 7%)",
+          "secondary-dark": "hsl(215, 21%, 11%)",
+        },
+        primary: {
+          400: "hsl(213, 94%, 68%)",
+          500: "hsl(217, 91%, 60%)",
+          600: "hsl(221, 83%, 53%)",
+        },
+        danger: {
+          light: "hsl(356, 71%, 48%)",
+          dark: "hsl(3, 93%, 63%)",
+        },
+        success: {
+          light: "#22c55e",
+          dark: "#22c55e",
+        },
+        border: {
+          light: "hsl(216, 12%, 84%)",
+          dark: "hsl(215, 28%, 17%)",
+        },
+        shadow: {
+          light: "hsl(216, 12%, 84%)",
+        },
       },
     },
   },
