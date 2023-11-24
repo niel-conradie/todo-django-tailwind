@@ -1,10 +1,29 @@
 @layer base {
   .form-control {
-    @apply w-full rounded-lg border border-border-light bg-background-primary-light text-sm transition-colors duration-100 hover:border-primary-500 focus:border-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-600 
-    dark:border-border-dark dark:bg-background-primary-dark dark:hover:border-primary-600 dark:focus:border-primary-500 dark:focus:ring-primary-500;
+    @apply w-full 
+    rounded-lg 
+    border
+  border-border-light
+  bg-background-primary-light 
+    text-sm 
+    transition-colors
+    duration-100 
+  placeholder:text-text-light
+  hover:border-primary-500
+  focus:border-primary-600 
+    focus:outline-none 
+    focus:ring-2 
+  focus:ring-primary-600 
+  dark:border-border-dark 
+  dark:bg-background-primary-dark 
+  dark:placeholder:text-text-dark 
+  dark:hover:border-primary-600 
+  dark:focus:border-primary-500 
+  dark:focus:ring-primary-500;
   }
 }
 
+/* Accounts */
 #id_login,
 #id_password,
 #id_email,
@@ -12,5 +31,13 @@
 #id_password1,
 #id_password2,
 #id_oldpassword {
+  @apply form-control;
+}
+
+/* Task Form */
+#id_title,
+#id_day,
+#id_time_start,
+#id_time_end {
   @apply form-control;
 }

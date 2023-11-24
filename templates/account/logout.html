@@ -42,9 +42,15 @@
           />
           {% endif %}
 
-          <button class="btn-primary w-full" type="submit">
-            <span class="btn-text text-sm">Confirm</span>
-          </button>
+          <div class="grid grid-cols-2 gap-4">
+            <button class="btn-primary" type="submit">
+              <span class="btn-text text-sm">Confirm</span>
+            </button>
+
+            <a class="btn-primary" href="{{ request.META.HTTP_REFERER }}">
+              <span class="btn-text text-sm">Back</span>
+            </a>
+          </div>
         </form>
       </div>
 

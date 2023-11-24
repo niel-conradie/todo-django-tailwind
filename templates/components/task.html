@@ -1,7 +1,3 @@
-{% load i18n %}
-
-<!--  -->
-
 <ul>
   <li>
     <div>
@@ -11,9 +7,9 @@
       <p>
         Status: {% if task.status == True %}Active{% else %}Inactive{% endif %}
       </p>
-      <a href="{% url 'app:task_update' task.day task.id %}">Update</a> |
-      <a href="{% url 'app:task_delete' task.day task.id %}">Delete</a> |
-      <a href="{% url 'app:task_convert' task.id %}">Convert</a>
+      <a href="{% url 'todo:update' task.day.slug task.id %}">Update</a> |
+      <a href="{% url 'todo:delete' task.day.slug task.id %}">Delete</a> |
+      <a href="{% url 'todo:convert' task.id %}">Convert</a>
     </div>
   </li>
 </ul>

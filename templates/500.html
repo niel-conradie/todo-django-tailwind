@@ -2,11 +2,7 @@
 
 <!--  -->
 
-{% load i18n %}
-
-<!--  -->
-
-{% block head_title %}{% trans "500 Server Error" %}{% endblock head_title %}
+{% block head_title %}500{% endblock head_title %}
 
 <!--  -->
 
@@ -22,19 +18,17 @@
 
 {% block content %}
 <main class="py-16">
-  <div class="mt-20 flex justify-center px-4 md:mt-40">
-    <div
-      class="border-border-light dark:border-border-dark shadow-shadow-light rounded-lg border bg-background-secondary-light p-6 shadow-md dark:bg-background-secondary-dark dark:shadow-none"
-    >
-      <h1 class="mb-8 mt-2 text-center font-medium">
-        {% trans "500 Server Error" %}
-      </h1>
+  <div class="mt-14 flex justify-center px-4 md:mt-28">
+    <div class="w-80">
+      <div
+        class="rounded-lg border border-border-light bg-background-secondary-light p-4 shadow-md shadow-shadow-light dark:border-border-dark dark:bg-background-secondary-dark dark:shadow-none"
+      >
+        <h1 class="mb-4 mt-0 text-center text-2xl font-medium">500</h1>
 
-      <hr class="border-border-light dark:border-border-dark" />
+        <hr class="mb-4 border-border-light dark:border-border-dark" />
 
-      <p class="mt-5 text-center">
-        {% trans "Looks like something went wrong!" %}
-      </p>
+        <p class="text-center">Looks like something went wrong!</p>
+      </div>
     </div>
   </div>
 </main>

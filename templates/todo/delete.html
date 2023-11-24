@@ -1,19 +1,15 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 <!--  -->
 
-{% load account %}
-
-<!--  -->
-
-{% block head_title %}Password Reset{% endblock head_title %}
+{% block head_title %}{{ title }}{% endblock head_title %}
 
 <!--  -->
 
 {% block extra_head %}
 
 <!-- Meta -->
-<meta name="description" content="Password Reset Page" />
+<meta name="description" content="Delete Page" />
 <meta name="author" content="Niel Conradie" />
 
 {% endblock extra_head %}
@@ -27,30 +23,14 @@
       <div
         class="mb-4 rounded-lg border border-border-light bg-background-secondary-light p-4 shadow-md shadow-shadow-light dark:border-border-dark dark:bg-background-secondary-dark dark:shadow-none"
       >
-        <h1 class="mb-4 mt-0 text-center text-2xl font-medium">
-          Password Reset
-        </h1>
+        <h1 class="mb-4 mt-0 text-center text-2xl font-medium">{{ h1 }}</h1>
 
         <hr class="mb-4 border-border-light dark:border-border-dark" />
 
-        <form method="POST" action="{% url 'account_reset_password' %}">
-          {% if user.is_authenticated %}
-          <!--  -->
-          {% include "account/snippets/already_logged_in.html" %}
-          <!--  -->
-          {% endif %}
-          <p class="mb-4">
-            "Enter your email address below to reset your password."
-          </p>
-
+        <form method="POST">
           {% csrf_token %}
 
-          <div class="mb-4">
-            <label class="fixed left-[9999px]" for="{{ form.email.auto_id }}">
-              {{ form.email.name }}
-            </label>
-            {{ form.email }}
-          </div>
+          <p class="mb-4">Are you sure you want to delete "{{ obj.title }}"?</p>
 
           <div class="grid grid-cols-2 gap-4">
             <button class="btn-primary" type="submit">
@@ -63,8 +43,6 @@
           </div>
         </form>
       </div>
-
-      {% include 'account/snippets/terms_privacy.html' %}
     </div>
   </div>
 </main>

@@ -69,7 +69,8 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "accounts.apps.AccountsConfig",
-    "app.apps.AppConfig",
+    "pages.apps.PagesConfig",
+    "todo.apps.TodoConfig",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

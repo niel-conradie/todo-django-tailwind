@@ -13,7 +13,8 @@ THIRD_PARTY_URLS = [
 ]
 
 LOCAL_URLS = [
-    path("", include("app.urls.urls")),
+    path("", include("pages.urls.urls")),
+    path("home/task/", include("todo.urls.urls")),
 ]
 
 urlpatterns = DJANGO_URLS + THIRD_PARTY_URLS + LOCAL_URLS

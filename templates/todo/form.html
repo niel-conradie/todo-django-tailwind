@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+<!--  -->
+
+{% block head_title %}{{ title }}{% endblock head_title %}
+
+<!--  -->
+
+{% block extra_head %}
+
+<!-- Meta -->
+<meta name="description" content="Todo Form Page" />
+<meta name="author" content="Niel Conradie" />
+
+{% endblock extra_head %}
+
+<!--  -->
+
+{% block content %}
+<main class="py-16">
+  <div class="mt-14 flex justify-center px-4 md:mt-28">
+    <div class="w-80">
+      <div
+        class="mb-4 rounded-lg border border-border-light bg-background-secondary-light p-4 shadow-md shadow-shadow-light dark:border-border-dark dark:bg-background-secondary-dark dark:shadow-none"
+      >
+        <h1 class="mb-4 mt-0 text-center text-2xl font-medium">{{ h1 }}</h1>
+
+        <hr class="mb-4 border-border-light dark:border-border-dark" />
+
+        <form method="POST">
+          {% csrf_token %}
+
+          <div class="mb-4">
+            <label class="fixed left-[9999px]" for="{{ form.title.auto_id }}">
+              {{ form.title.label }}:
+            </label>
+            {{ form.title }}
+          </div>
+
+          <div class="mb-4">
+            <label class="fixed left-[9999px]" for="{{ form.day.auto_id }}">
+              {{ form.day.label }}:
+            </label>
+            <select id="{{ form.day.auto_id }}" name="{{ form.day.name }}">
+              {% for value, label in form.fields.day.choices %}
+                {% if label == '---------' %}
+                  <option class="hidden" value="">Select an option</option>
+                {% else %}
+                  <option value="{{ value }}"{% if form.day.value == value %} selected{% endif %}>{{ label.title }}</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="mb-4">
+            <label
+              class="fixed left-[9999px]"
+              for="{{ form.time_start.auto_id }}"
+            >
+              {{ form.time_start.label }}:
+            </label>
+            {{ form.time_start }}
+          </div>
+
+          <div class="mb-4">
+            <label
+              class="fixed left-[9999px]"
+              for="{{ form.time_end.auto_id }}"
+            >
+              {{ form.time_end.label }}:
+            </label>
+            {{ form.time_end }}
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <button class="btn-primary" type="submit">
+              <span class="btn-text text-sm">Confirm</span>
+            </button>
+
+            <a class="btn-primary" href="{{ request.META.HTTP_REFERER }}">
+              <span class="btn-text text-sm">Back</span>
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock content %}
