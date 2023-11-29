@@ -25,9 +25,9 @@
         </p>
 
         <form
-          action="{% url 'account_email' %}"
           class="email_list"
           method="POST"
+          action="{% url 'account_email' %}"
         >
           {% csrf_token %}
 
@@ -35,8 +35,8 @@
             {% for emailaddress in emailaddresses %}
             <div class="ctrlHolder mb-4">
               <label
-                for="email_radio_{{forloop.counter}}"
                 class="{% if emailaddress.primary %}primary_email{%endif%}"
+                for="email_radio_{{forloop.counter}}"
               >
                 <input
                   id="email_radio_{{forloop.counter}}"
@@ -47,10 +47,10 @@
 
                 {{ emailaddress.email }}
                 <!--  -->
-                <div class="ms-5 mt-2">
+                <div class="ms-5 mt-2 flex gap-2">
                   {% if emailaddress.primary %}
                   <span
-                    class="me-1 rounded-lg bg-primary-500 px-1 font-medium text-white dark:bg-primary-600 dark:text-white"
+                    class="rounded-lg bg-blue-500 px-1 text-center text-sm font-medium text-white dark:bg-blue-500 dark:text-white"
                   >
                     Primary
                   </span>
@@ -58,13 +58,13 @@
                   <!--  -->
                   {% if emailaddress.verified %}
                   <span
-                    class="rounded-lg bg-green-500 px-1 font-medium text-white dark:bg-green-600 dark:text-white"
+                    class="rounded-lg bg-green-500 px-1 text-center text-sm font-medium text-white dark:bg-green-500 dark:text-white"
                   >
                     Verified
                   </span>
                   {% else %}
                   <span
-                    class="rounded-lg bg-red-500 px-1 font-medium text-white dark:bg-red-600 dark:text-white"
+                    class="rounded-lg bg-red-500 px-1 text-center text-sm font-medium text-white dark:bg-red-500 dark:text-white"
                   >
                     Unverified
                   </span>
@@ -77,27 +77,27 @@
             <div class="buttonHolder">
               <div class="mb-3 grid grid-cols-3 gap-4">
                 <button
-                  class="secondaryAction btn-primary"
+                  class="secondaryAction flex items-center justify-center rounded-lg bg-primary-light bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-primary-dark dark:bg-opacity-90 dark:text-white dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
                   type="submit"
                   name="action_primary"
                 >
-                  <span class="btn-text text-sm">Primary</span>
+                  <span class="text-sm font-medium">Primary</span>
                 </button>
 
                 <button
-                  class="secondaryAction btn-primary"
+                  class="secondaryAction flex items-center justify-center rounded-lg bg-primary-light bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-primary-dark dark:bg-opacity-90 dark:text-white dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
                   type="submit"
                   name="action_send"
                 >
-                  <span class="btn-text text-sm">Verify</span>
+                  <span class="text-sm font-medium">Verify</span>
                 </button>
 
                 <button
-                  class="primaryAction btn-primary"
+                  class="primaryAction flex items-center justify-center rounded-lg bg-primary-light bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-primary-dark dark:bg-opacity-90 dark:text-white dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
                   type="submit"
                   name="action_remove"
                 >
-                  <span class="btn-text text-sm">Remove</span>
+                  <span class="text-sm font-medium">Remove</span>
                 </button>
               </div>
             </div>
@@ -115,9 +115,9 @@
         <h2 class="mb-4">Add Email Address:</h2>
 
         <form
-          method="post"
-          action="{% url 'account_email' %}"
           class="add_email"
+          method="POST"
+          action="{% url 'account_email' %}"
         >
           {% csrf_token %}
 
@@ -125,7 +125,7 @@
 
           {% if form.errors %}
           <div
-            class="mb-4 rounded-lg border border-danger-light border-opacity-25 bg-danger-light bg-opacity-20 p-4 dark:bg-danger-dark dark:bg-opacity-20 before:dark:border-opacity-40"
+            class="mb-4 rounded-lg border border-danger-light border-opacity-25 bg-danger-light bg-opacity-20 p-4 dark:border-danger-dark dark:border-opacity-40 dark:bg-danger-dark dark:bg-opacity-20"
           >
             {% for field in form %}
             <!--  -->
@@ -144,9 +144,22 @@
             {{ form.email }}
           </div>
 
-          <button class="btn-primary w-full" name="action_add" type="submit">
-            <span class="btn-text text-sm">Confirm</span>
-          </button>
+          <div class="grid grid-cols-2 gap-4">
+            <button
+              class="w-full rounded-lg bg-primary-light bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-primary-dark dark:bg-opacity-90 dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
+              name="action_add"
+              type="submit"
+            >
+              <span class="text-sm font-medium">Confirm</span>
+            </button>
+
+            <a
+              class="flex items-center justify-center rounded-lg bg-primary-light bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-primary-dark dark:bg-opacity-90 dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
+              href="{% url 'pages:home' %}"
+            >
+              <span class="text-sm font-medium">Back</span>
+            </a>
+          </div>
         </form>
         {% endif %}
       </div>

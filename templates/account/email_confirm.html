@@ -41,14 +41,10 @@
         <p class="mb-4">
           Please confirm that
           <a
-            class="rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 dark:focus:ring-primary-500"
+            class="rounded-lg text-blue-500 underline-offset-2 hover:underline dark:text-blue-500"
             href="mailto:{{ email }}"
           >
-            <span
-              class="font-medium text-primary-500 underline-offset-2 hover:text-primary-600 hover:underline dark:text-primary-500 dark:hover:text-primary-400"
-            >
-              {{ email }}
-            </span>
+            <span class="font-medium">{{ email }}</span>
           </a>
           is an email address for user {{ user_display }}.
         </p>
@@ -59,8 +55,11 @@
         >
           {% csrf_token %}
 
-          <button class="btn-primary w-full" type="submit">
-            <span class="btn-text text-sm">Confirm</span>
+          <button
+            class="flex w-full items-center justify-center rounded-lg bg-primary-light bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-primary-dark dark:bg-opacity-90 dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
+            type="submit"
+          >
+            <span class="text-sm font-medium">Confirm</span>
           </button>
         </form>
         {% else %}
@@ -76,14 +75,10 @@
         <p class="mb-4">This email confirmation link expired or is invalid.</p>
         <p>
           <a
-            class="rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 dark:focus:ring-primary-500"
+            class="rounded-lg text-blue-500 underline-offset-2 hover:underline dark:text-blue-500"
             href="{{ email_url }}"
           >
-            <span
-              class="font-medium text-primary-500 underline-offset-2 hover:text-primary-600 hover:underline dark:text-primary-500 dark:hover:text-primary-400"
-            >
-              Request a new confirmation email.
-            </span>
+            <span class="font-medium">Request a new confirmation email.</span>
           </a>
         </p>
         {% endif %}

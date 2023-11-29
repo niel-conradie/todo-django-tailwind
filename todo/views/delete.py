@@ -15,7 +15,7 @@ def task_delete_view(request, slug, pk):
 
         if form.is_valid():
             task.delete()
-            return redirect("app:home")
+            return redirect("pages:home")
     else:
         form = DeleteModelForm()
 

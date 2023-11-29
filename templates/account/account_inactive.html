@@ -31,8 +31,11 @@
 
         <p class="mb-4 text-center">This account has been inactive.</p>
 
-        <a class="btn-primary w-full" href="{% url 'app:home' %}">
-          <span class="btn-text text-sm">Home</span>
+        <a
+          class="flex w-full items-center justify-center rounded-lg bg-primary-light bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-primary-dark dark:bg-opacity-90 dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
+          href="{% url 'pages:home' %}"
+        >
+          <span class="text-sm font-medium">Home</span>
         </a>
       </div>
 

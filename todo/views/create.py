@@ -14,6 +14,7 @@ def task_create_view(request):
             task.created_by = request.user
             task.save()
             return redirect("pages:home")
+
     else:
         form = TaskModelForm()
 
