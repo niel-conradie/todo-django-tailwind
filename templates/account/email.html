@@ -7,6 +7,7 @@
 <!--  -->
 
 {% block content %}
+
 <main class="py-16">
   <div class="mt-14 flex justify-center px-4 md:mt-28">
     <div class="w-80">
@@ -50,7 +51,7 @@
                 <div class="ms-5 mt-2 flex gap-2">
                   {% if emailaddress.primary %}
                   <span
-                    class="rounded-lg bg-blue-500 px-1 text-center text-sm font-medium text-white dark:bg-blue-500 dark:text-white"
+                    class="rounded-lg bg-primary-light px-1 text-center text-sm font-medium text-white dark:bg-primary-dark dark:text-white"
                   >
                     Primary
                   </span>
@@ -58,13 +59,13 @@
                   <!--  -->
                   {% if emailaddress.verified %}
                   <span
-                    class="rounded-lg bg-green-500 px-1 text-center text-sm font-medium text-white dark:bg-green-500 dark:text-white"
+                    class="bg-success-light dark:bg-success-dark rounded-lg px-1 text-center text-sm font-medium text-white dark:text-white"
                   >
                     Verified
                   </span>
                   {% else %}
                   <span
-                    class="rounded-lg bg-red-500 px-1 text-center text-sm font-medium text-white dark:bg-red-500 dark:text-white"
+                    class="rounded-lg bg-danger-light px-1 text-center text-sm font-medium text-white dark:bg-danger-dark dark:text-white"
                   >
                     Unverified
                   </span>
@@ -85,7 +86,7 @@
                 </button>
 
                 <button
-                  class="secondaryAction flex items-center justify-center rounded-lg bg-primary-light bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-primary-dark dark:bg-opacity-90 dark:text-white dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
+                  class="secondaryAction bg-success-light dark:bg-success-dark flex items-center justify-center rounded-lg bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-opacity-90 dark:text-white dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
                   type="submit"
                   name="action_send"
                 >
@@ -93,7 +94,7 @@
                 </button>
 
                 <button
-                  class="primaryAction flex items-center justify-center rounded-lg bg-primary-light bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-primary-dark dark:bg-opacity-90 dark:text-white dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
+                  class="primaryAction flex items-center justify-center rounded-lg bg-danger-light bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-danger-dark dark:bg-opacity-90 dark:text-white dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
                   type="submit"
                   name="action_remove"
                 >
@@ -168,6 +169,7 @@
     </div>
   </div>
 </main>
+
 {% endblock content %}
 
 <!--  -->

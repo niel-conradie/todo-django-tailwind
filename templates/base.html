@@ -1,4 +1,4 @@
-{% load static %} {% load i18n %}
+{% load static %}
 
 <!doctype html>
 <html lang="en">
@@ -10,7 +10,6 @@
 
     {% block extra_head %}
 
-    <!-- Meta -->
     <meta name="description" content="Django with Tailwind To Do" />
     <meta name="author" content="Niel Conradie" />
 
@@ -20,11 +19,27 @@
 
     {% block favicon %}
 
-    <!-- Favicon -->
     <link
       rel="shortcut icon"
       type="image/x-icon"
       href="{% static 'favicon/favicon.ico' %}"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="{% static 'favicon/apple-touch-icon.png' %}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{% static 'favicon/favicon-32x32.png' %}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="{% static 'favicon/favicon-16x16.png' %}"
     />
 
     {% endblock favicon %}
@@ -60,11 +75,31 @@
     />
 
     {% endblock css %}
+
+    <!--  -->
+
+    {% block script %}
+
+    <!-- Theme Toggle FOUC Fix -->
+    <script type="text/javascript">
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+
+    {% endblock script %}
   </head>
   <body
-    class="min-h-screen bg-background-primary-light font-primary text-text-light dark:bg-background-primary-dark dark:text-text-dark"
+    class="bg-background-primary-light font-primary text-text-light dark:bg-background-primary-dark dark:text-text-dark"
   >
     {% block body %}
+
     <!--  -->
 
     {% block header %}

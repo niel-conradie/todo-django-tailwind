@@ -2,10 +2,12 @@
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./templates/**/*.html"],
+  content: ["./templates/**/*.html", "./assets/js/**/*.js"],
+  darkMode: "class",
 
   // || Overriding styles
   theme: {
+    // | Breakpoints
     screens: {
       sm: "640px",
       md: "768px",
@@ -15,29 +17,48 @@ module.exports = {
 
     // || Additional styles
     extend: {
+      // | Typography
       fontFamily: {
         primary: ["Poppins", "sans-serif"],
       },
+
+      // | Background Images
+      backgroundImage: {
+        // light: "url('/static/images/background-light.jpg')",
+        // dark: "url('/static/images/background-dark.jpg')",
+      },
+
+      // | Color Pallette
       colors: {
         text: {
           light: "hsl(213, 13%, 14%)",
           dark: "hsl(210, 67%, 96%)",
         },
-        "background-primary": {
-          light: "hsl(0, 0%, 100%)",
-          dark: "hsl(216, 28%, 7%)",
-        },
-        "background-secondary": {
-          light: "hsl(210, 29%, 97%)",
-          dark: "hsl(215, 21%, 11%)",
+        background: {
+          primary: {
+            light: "hsl(0, 0%, 100%)",
+            dark: "hsl(216, 28%, 7%)",
+          },
+          secondary: {
+            light: "hsl(210, 29%, 97%)",
+            dark: "hsl(215, 21%, 11%)",
+          },
         },
         primary: {
           light: "hsl(217, 91%, 60%)",
           dark: "hsl(217, 91%, 60%)",
         },
+        success: {
+          light: "hsl(142, 71%, 45%)",
+          dark: "hsl(142, 71%, 45%)",
+        },
         danger: {
           light: "hsl(356, 71%, 48%)",
           dark: "hsl(3, 93%, 63%)",
+        },
+        warning: {
+          light: "hsl(45, 93%, 47%)",
+          dark: "hsl(45, 93%, 47%)",
         },
         border: {
           light: "hsl(216, 12%, 84%)",

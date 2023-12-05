@@ -1,38 +1,291 @@
+{% load static %}
+
 <header
-  class="fixed top-0 min-w-full border-b border-border-light bg-background-secondary-light shadow-md shadow-shadow-light dark:border-border-dark dark:bg-background-secondary-dark dark:shadow-none"
+  class="fixed top-0 w-full border-b border-border-light bg-background-secondary-light shadow-md shadow-shadow-light dark:border-border-dark dark:bg-background-secondary-dark dark:shadow-none"
 >
+  <!-- Navbar Container Start -->
   <div
     class="mx-auto flex h-16 w-[90%] max-w-[100rem] items-center justify-between"
   >
+    <!-- Navbar Logo Start -->
     <div>
       {% if request.user.is_authenticated %}
       <a
         class="rounded-lg transition-colors duration-300 hover:text-primary-light focus:text-primary-light dark:hover:text-primary-dark dark:focus:text-primary-dark"
         href="{% url 'pages:home' %}"
       >
-        <span class="text-2xl font-medium">To Do</span>
+        <div class="flex items-center justify-center gap-2">
+          <img
+            src="{% static 'images/logo.png' %}"
+            alt="Logo"
+            width="32"
+            height="32"
+          />
+          <span class="text-xl font-medium">To Do</span>
+        </div>
       </a>
       {% else %}
       <a
         class="rounded-lg transition-colors duration-300 hover:text-primary-light focus:text-primary-light dark:hover:text-primary-dark dark:focus:text-primary-dark"
         href="{% url 'pages:index' %}"
       >
-        <span class="text-2xl font-medium">To Do</span>
+        <div class="flex items-center justify-center gap-2">
+          <img
+            src="{% static 'images/logo.png' %}"
+            alt="Logo"
+            width="32"
+            height="32"
+          />
+          <span class="text-xl font-medium">To Do</span>
+        </div>
       </a>
       {% endif %}
     </div>
+    <!-- Navbar Logo End -->
 
-    {% if request.user.is_authenticated %}
-    <div>
+    <div class="grid grid-cols-2 gap-4">
+      {% if request.user.is_authenticated %}
+      <div class="flex items-center justify-evenly gap-4">
+        <!-- Theme Dropdown Start -->
+        <div class="relative select-none">
+          <!-- Theme Dropdown Icon Start -->
+          <div id="themeDropdownIcon" class="cursor-pointer">
+            <!-- Light Theme Dropdown Icon Start -->
+            <svg
+              id="lightThemeDropdownIcon"
+              class="hidden h-6 w-6"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                id="lightThemeDropdownIconPath1"
+                class="stroke-text-light dark:stroke-text-dark"
+                d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+              ></path>
+              <path
+                id="lightThemeDropdownIconPath2"
+                class="stroke-text-light dark:stroke-text-dark"
+                d="M12 4v1M17.66 6.344l-.828.828M20.005 12.004h-1M17.66 17.664l-.828-.828M12 20.01V19M6.34 17.664l.835-.836M3.995 12.004h1.01M6 6l.835.836"
+              ></path>
+            </svg>
+            <!-- Light Theme Dropdown Icon End -->
+
+            <!-- Dark Theme Dropdown Icon Start -->
+            <svg
+              id="darkThemeDropdownIcon"
+              class="hidden h-6 w-6"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                class="fill-transparent"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M17.715 15.15A6.5 6.5 0 0 1 9 6.035C6.106 6.922 4 9.645 4 12.867c0 3.94 3.153 7.136 7.042 7.136 3.101 0 5.734-2.032 6.673-4.853Z"
+              ></path>
+              <path
+                id="darkThemeDropdownIconPath1"
+                class="fill-text-light dark:fill-text-dark"
+                d="m17.715 15.15.95.316a1 1 0 0 0-1.445-1.185l.495.869ZM9 6.035l.846.534a1 1 0 0 0-1.14-1.49L9 6.035Zm8.221 8.246a5.47 5.47 0 0 1-2.72.718v2a7.47 7.47 0 0 0 3.71-.98l-.99-1.738Zm-2.72.718A5.5 5.5 0 0 1 9 9.5H7a7.5 7.5 0 0 0 7.5 7.5v-2ZM9 9.5c0-1.079.31-2.082.845-2.93L8.153 5.5A7.47 7.47 0 0 0 7 9.5h2Zm-4 3.368C5 10.089 6.815 7.75 9.292 6.99L8.706 5.08C5.397 6.094 3 9.201 3 12.867h2Zm6.042 6.136C7.718 19.003 5 16.268 5 12.867H3c0 4.48 3.588 8.136 8.042 8.136v-2Zm5.725-4.17c-.81 2.433-3.074 4.17-5.725 4.17v2c3.552 0 6.553-2.327 7.622-5.537l-1.897-.632Z"
+              ></path>
+              <path
+                id="darkThemeDropdownIconPath2"
+                class="fill-text-light dark:fill-text-dark"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M17 3a1 1 0 0 1 1 1 2 2 0 0 0 2 2 1 1 0 1 1 0 2 2 2 0 0 0-2 2 1 1 0 1 1-2 0 2 2 0 0 0-2-2 1 1 0 1 1 0-2 2 2 0 0 0 2-2 1 1 0 0 1 1-1Z"
+              ></path>
+            </svg>
+            <!-- Dark Theme Dropdown Icon End -->
+
+            <!-- System Theme Dropdown Icon Start -->
+            <svg
+              id="systemThemeDropdownIcon"
+              class="h-6 w-6"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                id="systemThemeDropdownIconPath1"
+                class="stroke-text-light dark:stroke-text-dark"
+                d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6Z"
+                stroke-width="2"
+                stroke-linejoin="round"
+              ></path>
+              <path
+                id="systemThemeDropdownIconPath2"
+                class="stroke-text-light dark:stroke-text-dark"
+                d="M14 15c0 3 2 5 2 5H8s2-2 2-5"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </svg>
+            <!-- System Theme Dropdown Icon End -->
+          </div>
+          <!-- Theme Dropdown Icon End -->
+
+          <!-- Theme Dropdown Menu Start -->
+          <div
+            id="themeDropdownMenu"
+            class="absolute hidden w-28 -translate-x-10 translate-y-5 cursor-pointer rounded-lg border border-border-light bg-background-secondary-light shadow-md shadow-shadow-light dark:border-border-dark dark:bg-background-secondary-dark dark:shadow-none"
+          >
+            <ul>
+              <!-- Light Theme Dropdown Menu Start -->
+              <li
+                id="lightTheme"
+                class="flex items-center justify-between rounded-t-lg border-b border-border-light bg-background-secondary-light px-2.5 py-2 hover:bg-background-primary-light dark:border-border-dark dark:bg-background-secondary-dark dark:hover:bg-background-primary-dark"
+              >
+                <span class="text-sm font-medium">Light</span>
+                <svg
+                  class="h-6 w-6"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    id="lightThemeDropdownMenuIconPath1"
+                    class="stroke-text-light dark:stroke-text-dark"
+                    d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                  ></path>
+                  <path
+                    id="lightThemeDropdownMenuIconPath2"
+                    class="stroke-text-light dark:stroke-text-dark"
+                    d="M12 4v1M17.66 6.344l-.828.828M20.005 12.004h-1M17.66 17.664l-.828-.828M12 20.01V19M6.34 17.664l.835-.836M3.995 12.004h1.01M6 6l.835.836"
+                  ></path>
+                </svg>
+              </li>
+              <!-- Light Theme Dropdown Menu End -->
+
+              <!-- Dark Theme Dropdown Menu Start -->
+              <li
+                id="darkTheme"
+                class="flex items-center justify-between border-b border-border-light bg-background-secondary-light px-2.5 py-2 hover:bg-background-primary-light dark:border-border-dark dark:bg-background-secondary-dark dark:hover:bg-background-primary-dark"
+              >
+                <span class="text-sm font-medium">Dark</span>
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none">
+                  <path
+                    class="fill-transparent"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M17.715 15.15A6.5 6.5 0 0 1 9 6.035C6.106 6.922 4 9.645 4 12.867c0 3.94 3.153 7.136 7.042 7.136 3.101 0 5.734-2.032 6.673-4.853Z"
+                  ></path>
+                  <path
+                    id="darkThemeDropdownMenuIconPath1"
+                    class="fill-text-light dark:fill-text-dark"
+                    d="m17.715 15.15.95.316a1 1 0 0 0-1.445-1.185l.495.869ZM9 6.035l.846.534a1 1 0 0 0-1.14-1.49L9 6.035Zm8.221 8.246a5.47 5.47 0 0 1-2.72.718v2a7.47 7.47 0 0 0 3.71-.98l-.99-1.738Zm-2.72.718A5.5 5.5 0 0 1 9 9.5H7a7.5 7.5 0 0 0 7.5 7.5v-2ZM9 9.5c0-1.079.31-2.082.845-2.93L8.153 5.5A7.47 7.47 0 0 0 7 9.5h2Zm-4 3.368C5 10.089 6.815 7.75 9.292 6.99L8.706 5.08C5.397 6.094 3 9.201 3 12.867h2Zm6.042 6.136C7.718 19.003 5 16.268 5 12.867H3c0 4.48 3.588 8.136 8.042 8.136v-2Zm5.725-4.17c-.81 2.433-3.074 4.17-5.725 4.17v2c3.552 0 6.553-2.327 7.622-5.537l-1.897-.632Z"
+                  ></path>
+                  <path
+                    id="darkThemeDropdownMenuIconPath2"
+                    class="fill-text-light dark:fill-text-dark"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M17 3a1 1 0 0 1 1 1 2 2 0 0 0 2 2 1 1 0 1 1 0 2 2 2 0 0 0-2 2 1 1 0 1 1-2 0 2 2 0 0 0-2-2 1 1 0 1 1 0-2 2 2 0 0 0 2-2 1 1 0 0 1 1-1Z"
+                  ></path>
+                </svg>
+              </li>
+              <!-- Dark Theme Dropdown Menu End -->
+
+              <!-- System Theme Dropdown Menu Start -->
+              <li
+                id="systemTheme"
+                class="flex items-center justify-between rounded-b-lg bg-background-secondary-light px-2.5 py-2 hover:bg-background-primary-light dark:bg-background-secondary-dark dark:hover:bg-background-primary-dark"
+              >
+                <span class="text-sm font-medium">System</span>
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none">
+                  <path
+                    id="systemThemeDropdownMenuIconPath1"
+                    class="stroke-text-light dark:stroke-text-dark"
+                    d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6Z"
+                    stroke-width="2"
+                    stroke-linejoin="round"
+                  ></path>
+                  <path
+                    id="systemThemeDropdownMenuIconPath2"
+                    class="stroke-text-light dark:stroke-text-dark"
+                    d="M14 15c0 3 2 5 2 5H8s2-2 2-5"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+              </li>
+              <!-- System Theme Dropdown Menu End -->
+            </ul>
+          </div>
+          <!-- Theme Dropdown Menu End -->
+        </div>
+        <!-- Theme Dropdown End -->
+
+        <!-- Account Dropdown Start -->
+        <div class="relative select-none">
+          <!-- Account Dropdown Icon Start -->
+          <div id="accountDropdownIcon" class="cursor-pointer">
+            <svg
+              class="h-6 w-6"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+            >
+              <path
+                id="accountDropdownIconPath1"
+                class="stroke-text-light dark:stroke-text-dark"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 011.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.56.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.893.149c-.425.07-.765.383-.93.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 01-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.397.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 01-.12-1.45l.527-.737c.25-.35.273-.806.108-1.204-.165-.397-.505-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.107-1.204l-.527-.738a1.125 1.125 0 01.12-1.45l.773-.773a1.125 1.125 0 011.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894z"
+              />
+              <path
+                id="accountDropdownIconPath2"
+                class="stroke-text-light dark:stroke-text-dark"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+            </svg>
+          </div>
+          <!-- Account Dropdown Icon End -->
+
+          <!-- Account Dropdown Menu Start -->
+          <div
+            id="accountDropdownMenu"
+            class="absolute hidden w-[9.5rem] -translate-x-14 translate-y-5 cursor-pointer rounded-lg border border-border-light bg-background-secondary-light shadow-md shadow-shadow-light dark:border-border-dark dark:bg-background-secondary-dark dark:shadow-none"
+          >
+            <ul>
+              <li
+                class="rounded-t-lg border-b border-border-light px-2.5 py-2 hover:bg-background-primary-light dark:border-border-dark dark:hover:bg-background-primary-dark"
+              >
+                <a href="{% url 'account_change_password' %}">
+                  <span class="text-sm font-medium">Change Password</span>
+                </a>
+              </li>
+              <li
+                class="rounded-b-lg px-2.5 py-2 underline-offset-2 hover:bg-background-primary-light dark:hover:bg-background-primary-dark"
+              >
+                <a href="{% url 'account_email' %}">
+                  <span class="text-sm font-medium">Email Addresses</span>
+                </a>
+              </li>
+              <!-- Account Dropdown End -->
+            </ul>
+          </div>
+          <!-- Account Dropdown Menu End -->
+        </div>
+        <!-- Account Dropdown End -->
+      </div>
+
       <a
         class="flex items-center justify-center rounded-lg border border-primary-light px-2.5 py-2 transition-colors duration-300 hover:bg-primary-light hover:text-white focus:bg-primary-light focus:text-white dark:border-primary-dark dark:hover:bg-primary-dark dark:focus:bg-primary-dark"
         href="{% url 'account_logout' %}"
       >
         <span class="font-medium">Sign Out</span>
       </a>
-    </div>
-    {% else %}
-    <div class="grid grid-cols-2 gap-4">
+      {% else %}
       <a
         class="flex items-center justify-center rounded-lg border border-primary-light px-2.5 py-2 transition-colors duration-300 hover:bg-primary-light hover:text-white focus:bg-primary-light focus:text-white dark:border-primary-dark dark:hover:bg-primary-dark dark:focus:bg-primary-dark"
         href="{% url 'account_login' %}"
@@ -45,7 +298,8 @@
       >
         <span class="font-medium">Sign Up</span>
       </a>
+      {% endif %}
     </div>
-    {% endif %}
   </div>
+  <!-- Navbar Container End -->
 </header>

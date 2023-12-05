@@ -1,4 +1,8 @@
-<li class="grid grid-cols-2 gap-x-4 py-4 pe-4 ps-8">
+{% load static %}
+
+<li
+  class="grid grid-cols-2 gap-x-4 py-4 pe-4 ps-8 hover:bg-background-secondary-light dark:hover:bg-background-secondary-dark"
+>
   <div>
     <div
       class="{% if task.status == True %}{% else %}text-gray-400 dark:text-gray-500{% endif %} mb-2 flex justify-between border-b border-dashed border-border-light font-medium dark:border-border-dark"
@@ -25,7 +29,7 @@
   <div class="flex items-center justify-evenly">
     <!-- Edit Task Start -->
     <a
-      class="flex items-center justify-center rounded-full bg-blue-500 p-2 dark:bg-blue-500"
+      class="flex items-center justify-center rounded-full bg-primary-light bg-opacity-90 p-2 transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-primary-dark dark:bg-opacity-90 dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
       href="{% url 'todo:update' task.day.slug task.id %}"
     >
       <svg
@@ -47,7 +51,7 @@
 
     <!-- Delete Task Start -->
     <a
-      class="flex items-center justify-center rounded-full bg-red-500 p-2 dark:bg-red-500"
+      class="flex items-center justify-center rounded-full bg-danger-light bg-opacity-90 p-2 transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-danger-dark dark:bg-opacity-90 dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
       href="{% url 'todo:delete' task.day.slug task.id %}"
     >
       <svg
@@ -69,7 +73,7 @@
 
     <!-- Convert Task Start -->
     <a
-      class="{% if task.status == True %}bg-green-500 dark:bg-green-500{% else %}bg-yellow-500 dark:bg-yellow-500{% endif %} flex items-center justify-center rounded-full p-2"
+      class="{% if task.status == True %}bg-success-light dark:bg-success-dark{% else %}bg-warning-light dark:bg-warning-dark{% endif %} flex items-center justify-center rounded-full bg-opacity-90 p-2 transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-opacity-90 dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
       href="{% url 'todo:convert' task.id %}"
     >
       {% if task.status == True %}
