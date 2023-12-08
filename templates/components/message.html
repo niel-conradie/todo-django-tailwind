@@ -1,0 +1,11 @@
+{% if messages %}
+<ul id="message" class="fixed top-[4.05rem] z-10 w-full">
+  {% for message in messages %}
+  <li
+    class="{% if message.tags == 'success' %}bg-success-light dark:bg-success-dark{% elif message.tags == 'error' %}bg-error-light dark:bg-error-dark{% elif message.tags == 'warning' %}bg-warning-light dark:bg-warning-dark{% elif message.tags == 'info' %}bg-info-light dark:bg-info-dark{% endif %} flex h-16 items-center justify-center bg-opacity-75 p-4 text-white backdrop-blur-lg dark:bg-opacity-75 dark:text-white dark:backdrop-blur-lg"
+  >
+    <span class="font-medium">{{ message }}</span>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}

@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect
 
@@ -10,9 +11,10 @@ def task_convert_view(request, pk):
 
     if task.status == True:
         task.status = False
+        messages.success(request, "Task Completed")
     else:
         task.status = True
+        messages.warning(request, "Task Incomplete")
 
     task.save()
-
     return redirect("pages:home")

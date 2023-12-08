@@ -6,12 +6,12 @@ from todo.models import TaskModel
 class TaskModelForm(forms.ModelForm):
     title = forms.CharField(
         label="Title",
-        max_length=50,
+        max_length=15,
         min_length=2,
         required=True,
         widget=forms.TextInput(
             attrs={
-                "placeholder": "Task Title",
+                "placeholder": "Task",
             },
         ),
     )

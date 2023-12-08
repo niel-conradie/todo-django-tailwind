@@ -1,5 +1,3 @@
-// | Light/Dark/System Theme Switcher
-
 const lightTheme = document.getElementById("lightTheme");
 const darkTheme = document.getElementById("darkTheme");
 const systemTheme = document.getElementById("systemTheme");
@@ -114,8 +112,8 @@ function updateThemeIcons() {
       lightThemeDropdownIcon.classList.add("hidden");
       darkThemeDropdownIcon.classList.add("hidden");
     }
-  } catch (e) {
-    // console.error(e); // pass silently
+  } catch (error) {
+    // console.error(error); // pass silently
   }
 }
 
@@ -125,8 +123,8 @@ try {
     setLightTheme();
     location.reload(); // force reload
   });
-} catch (e) {
-  // console.error(e); // pass silently
+} catch (error) {
+  // console.error(error); // pass silently
 }
 
 // activate the dark theme
@@ -135,8 +133,8 @@ try {
     setDarkTheme();
     location.reload(); // force reload
   });
-} catch (e) {
-  // console.error(e); // pass silently
+} catch (error) {
+  // console.error(error); // pass silently
 }
 
 // activate the system preference theme
@@ -145,8 +143,8 @@ try {
     setSystemTheme();
     location.reload(); // force reload
   });
-} catch (e) {
-  // console.error(e); // pass silently
+} catch (error) {
+  // console.error(error); // pass silently
 }
 
 // on load update theme icons
@@ -154,6 +152,6 @@ try {
   window.addEventListener("load", () => {
     updateThemeIcons();
   });
-} catch (e) {
-  // console.error(e); // pass silently
+} catch (error) {
+  // console.error(error); // pass silently
 }

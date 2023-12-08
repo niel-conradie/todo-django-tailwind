@@ -1,7 +1,7 @@
 {% load static %}
 
 <header
-  class="fixed top-0 w-full border-b border-border-light bg-background-secondary-light shadow-md shadow-shadow-light dark:border-border-dark dark:bg-background-secondary-dark dark:shadow-none"
+  class="fixed top-0 z-50 w-full border-b border-border-light bg-background-secondary-light bg-opacity-75 shadow-md shadow-shadow-light backdrop-blur-sm dark:border-border-dark dark:bg-background-secondary-dark dark:bg-opacity-90 dark:shadow-none dark:backdrop-blur-sm"
 >
   <!-- Navbar Container Start -->
   <div
@@ -11,12 +11,12 @@
     <div>
       {% if request.user.is_authenticated %}
       <a
-        class="rounded-lg transition-colors duration-300 hover:text-primary-light focus:text-primary-light dark:hover:text-primary-dark dark:focus:text-primary-dark"
+        class="rounded-md transition-colors duration-300 hover:text-primary-light focus:text-primary-light dark:hover:text-primary-dark dark:focus:text-primary-dark"
         href="{% url 'pages:home' %}"
       >
-        <div class="flex items-center justify-center gap-2">
+        <div class="flex items-center justify-center gap-x-2">
           <img
-            src="{% static 'images/logo.png' %}"
+            src="{% static 'images/logo-32x32.png' %}"
             alt="Logo"
             width="32"
             height="32"
@@ -26,12 +26,12 @@
       </a>
       {% else %}
       <a
-        class="rounded-lg transition-colors duration-300 hover:text-primary-light focus:text-primary-light dark:hover:text-primary-dark dark:focus:text-primary-dark"
+        class="rounded-md transition-colors duration-300 hover:text-primary-light focus:text-primary-light dark:hover:text-primary-dark dark:focus:text-primary-dark"
         href="{% url 'pages:index' %}"
       >
-        <div class="flex items-center justify-center gap-2">
+        <div class="flex items-center justify-center gap-x-2">
           <img
-            src="{% static 'images/logo.png' %}"
+            src="{% static 'images/logo-32x32.png' %}"
             alt="Logo"
             width="32"
             height="32"
@@ -43,9 +43,9 @@
     </div>
     <!-- Navbar Logo End -->
 
-    <div class="grid grid-cols-2 gap-4">
+    <div class="grid grid-cols-2 gap-x-4">
       {% if request.user.is_authenticated %}
-      <div class="flex items-center justify-evenly gap-4">
+      <div class="flex items-center justify-evenly gap-x-4">
         <!-- Theme Dropdown Start -->
         <div class="relative select-none">
           <!-- Theme Dropdown Icon Start -->
@@ -131,13 +131,13 @@
           <!-- Theme Dropdown Menu Start -->
           <div
             id="themeDropdownMenu"
-            class="absolute hidden w-28 -translate-x-10 translate-y-5 cursor-pointer rounded-lg border border-border-light bg-background-secondary-light shadow-md shadow-shadow-light dark:border-border-dark dark:bg-background-secondary-dark dark:shadow-none"
+            class="absolute hidden w-28 -translate-x-10 translate-y-5 cursor-pointer rounded-md border border-border-light bg-background-secondary-light shadow-md shadow-shadow-light dark:border-border-dark dark:bg-background-secondary-dark dark:shadow-none"
           >
             <ul>
               <!-- Light Theme Dropdown Menu Start -->
               <li
                 id="lightTheme"
-                class="flex items-center justify-between rounded-t-lg border-b border-border-light bg-background-secondary-light px-2.5 py-2 hover:bg-background-primary-light dark:border-border-dark dark:bg-background-secondary-dark dark:hover:bg-background-primary-dark"
+                class="flex items-center justify-between rounded-t-md border-b border-border-light bg-background-secondary-light px-2.5 py-2 transition-colors duration-150 hover:bg-background-primary-light dark:border-border-dark dark:bg-background-secondary-dark dark:hover:bg-background-primary-dark"
               >
                 <span class="text-sm font-medium">Light</span>
                 <svg
@@ -165,7 +165,7 @@
               <!-- Dark Theme Dropdown Menu Start -->
               <li
                 id="darkTheme"
-                class="flex items-center justify-between border-b border-border-light bg-background-secondary-light px-2.5 py-2 hover:bg-background-primary-light dark:border-border-dark dark:bg-background-secondary-dark dark:hover:bg-background-primary-dark"
+                class="flex items-center justify-between border-b border-border-light bg-background-secondary-light px-2.5 py-2 transition-colors duration-150 hover:bg-background-primary-light dark:border-border-dark dark:bg-background-secondary-dark dark:hover:bg-background-primary-dark"
               >
                 <span class="text-sm font-medium">Dark</span>
                 <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none">
@@ -194,7 +194,7 @@
               <!-- System Theme Dropdown Menu Start -->
               <li
                 id="systemTheme"
-                class="flex items-center justify-between rounded-b-lg bg-background-secondary-light px-2.5 py-2 hover:bg-background-primary-light dark:bg-background-secondary-dark dark:hover:bg-background-primary-dark"
+                class="flex items-center justify-between rounded-b-md bg-background-secondary-light px-2.5 py-2 transition-colors duration-150 hover:bg-background-primary-light dark:bg-background-secondary-dark dark:hover:bg-background-primary-dark"
               >
                 <span class="text-sm font-medium">System</span>
                 <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none">
@@ -254,18 +254,18 @@
           <!-- Account Dropdown Menu Start -->
           <div
             id="accountDropdownMenu"
-            class="absolute hidden w-[9.5rem] -translate-x-14 translate-y-5 cursor-pointer rounded-lg border border-border-light bg-background-secondary-light shadow-md shadow-shadow-light dark:border-border-dark dark:bg-background-secondary-dark dark:shadow-none"
+            class="absolute hidden w-[9.5rem] -translate-x-14 translate-y-5 cursor-pointer rounded-md border border-border-light bg-background-secondary-light shadow-md shadow-shadow-light dark:border-border-dark dark:bg-background-secondary-dark dark:shadow-none"
           >
             <ul>
               <li
-                class="rounded-t-lg border-b border-border-light px-2.5 py-2 hover:bg-background-primary-light dark:border-border-dark dark:hover:bg-background-primary-dark"
+                class="rounded-t-md border-b border-border-light px-2.5 py-2 transition-colors duration-150 hover:bg-background-primary-light dark:border-border-dark dark:hover:bg-background-primary-dark"
               >
                 <a href="{% url 'account_change_password' %}">
                   <span class="text-sm font-medium">Change Password</span>
                 </a>
               </li>
               <li
-                class="rounded-b-lg px-2.5 py-2 underline-offset-2 hover:bg-background-primary-light dark:hover:bg-background-primary-dark"
+                class="rounded-b-md px-2.5 py-2 transition-colors duration-150 hover:bg-background-primary-light dark:hover:bg-background-primary-dark"
               >
                 <a href="{% url 'account_email' %}">
                   <span class="text-sm font-medium">Email Addresses</span>
@@ -280,20 +280,20 @@
       </div>
 
       <a
-        class="flex items-center justify-center rounded-lg border border-primary-light px-2.5 py-2 transition-colors duration-300 hover:bg-primary-light hover:text-white focus:bg-primary-light focus:text-white dark:border-primary-dark dark:hover:bg-primary-dark dark:focus:bg-primary-dark"
+        class="flex items-center justify-center rounded-md border border-primary-light px-2.5 py-2 transition-colors duration-300 hover:bg-primary-light hover:text-white focus:bg-primary-light focus:text-white dark:border-primary-dark dark:hover:bg-primary-dark dark:focus:bg-primary-dark"
         href="{% url 'account_logout' %}"
       >
         <span class="font-medium">Sign Out</span>
       </a>
       {% else %}
       <a
-        class="flex items-center justify-center rounded-lg border border-primary-light px-2.5 py-2 transition-colors duration-300 hover:bg-primary-light hover:text-white focus:bg-primary-light focus:text-white dark:border-primary-dark dark:hover:bg-primary-dark dark:focus:bg-primary-dark"
+        class="flex items-center justify-center rounded-md border border-primary-light px-2.5 py-2 transition-colors duration-300 hover:bg-primary-light hover:text-white focus:bg-primary-light focus:text-white dark:border-primary-dark dark:hover:bg-primary-dark dark:focus:bg-primary-dark"
         href="{% url 'account_login' %}"
       >
         <span class="font-medium">Sign In</span>
       </a>
       <a
-        class="flex items-center justify-center rounded-lg border border-primary-light px-2.5 py-2 transition-colors duration-300 hover:bg-primary-light hover:text-white focus:bg-primary-light focus:text-white dark:border-primary-dark dark:hover:bg-primary-dark dark:focus:bg-primary-dark"
+        class="flex items-center justify-center rounded-md border border-primary-light px-2.5 py-2 transition-colors duration-300 hover:bg-primary-light hover:text-white focus:bg-primary-light focus:text-white dark:border-primary-dark dark:hover:bg-primary-dark dark:focus:bg-primary-dark"
         href="{% url 'account_signup' %}"
       >
         <span class="font-medium">Sign Up</span>

@@ -26,7 +26,7 @@
   <div class="mt-14 flex justify-center px-4 md:mt-28">
     <div class="w-80">
       <div
-        class="mb-4 rounded-lg border border-border-light bg-background-secondary-light p-4 shadow-md shadow-shadow-light dark:border-border-dark dark:bg-background-secondary-dark dark:shadow-none"
+        class="mb-4 rounded-md border border-border-light bg-background-secondary-light p-4 shadow-md shadow-shadow-light dark:border-border-dark dark:bg-background-secondary-dark dark:shadow-none"
       >
         <h1 class="mb-4 mt-0 text-center text-2xl font-medium">
           Confirm Email Address
@@ -39,10 +39,10 @@
         {% user_display confirmation.email_address.user as user_display %}
         <!--  -->
         {% if can_confirm %}
-        <p class="mb-4">
+        <p class="mb-4 text-center">
           Please confirm that
           <a
-            class="rounded-lg text-blue-500 underline-offset-2 hover:underline dark:text-blue-500"
+            class="rounded-md text-blue-500 underline-offset-2 hover:underline dark:text-blue-500"
             href="mailto:{{ email }}"
           >
             <span class="font-medium">{{ email }}</span>
@@ -57,7 +57,7 @@
           {% csrf_token %}
 
           <button
-            class="flex w-full items-center justify-center rounded-lg bg-primary-light bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-primary-dark dark:bg-opacity-90 dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
+            class="flex w-full items-center justify-center rounded-md bg-primary-light bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-primary-dark dark:bg-opacity-90 dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
             type="submit"
           >
             <span class="text-sm font-medium">Confirm</span>
@@ -73,13 +73,18 @@
         {% else %}
         <!--  -->
         {% url 'account_email' as email_url %}
-        <p class="mb-4">This email confirmation link expired or is invalid.</p>
-        <p>
+        <p class="mb-4 text-center">
+          This email confirmation link expired or is invalid.
+        </p>
+
+        <p class="text-center">
           <a
-            class="rounded-lg text-blue-500 underline-offset-2 hover:underline dark:text-blue-500"
+            class="rounded-md text-blue-500 underline-offset-2 hover:underline dark:text-blue-500"
             href="{{ email_url }}"
           >
-            <span class="font-medium">Request a new confirmation email.</span>
+            <span class="text-center font-medium">
+              Request a new confirmation email.
+            </span>
           </a>
         </p>
         {% endif %}

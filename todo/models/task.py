@@ -11,7 +11,7 @@ CustomUser = get_user_model()
 
 class TaskModel(UUIDModel):
     title = models.CharField(
-        max_length=50,
+        max_length=15,
     )
 
     day = models.ForeignKey(
@@ -55,4 +55,4 @@ class TaskModel(UUIDModel):
         verbose_name_plural = "Tasks for the Day"
 
     def __str__(self):
-        return self.title[0:10]
+        return self.title

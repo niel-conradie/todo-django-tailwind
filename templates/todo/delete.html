@@ -17,11 +17,12 @@
 <!--  -->
 
 {% block content %}
+
 <main id="main" class="py-16">
   <div class="mt-14 flex justify-center px-4 md:mt-28">
     <div class="w-80">
       <div
-        class="mb-4 rounded-lg border border-border-light bg-background-secondary-light p-4 shadow-md shadow-shadow-light dark:border-border-dark dark:bg-background-secondary-dark dark:shadow-none"
+        class="mb-4 rounded-md border border-border-light bg-background-secondary-light p-4 shadow-md shadow-shadow-light dark:border-border-dark dark:bg-background-secondary-dark dark:shadow-none"
       >
         <h1 class="mb-4 mt-0 text-center text-2xl font-medium">{{ h1 }}</h1>
 
@@ -30,19 +31,22 @@
         <form method="POST">
           {% csrf_token %}
 
-          <p class="mb-4">Are you sure you want to delete "{{ obj.title }}"?</p>
+          <p class="mb-4 text-center">
+            Are you sure you want to delete
+            <span class="font-medium">"{{ obj.title }}"</span>?
+          </p>
 
           <div class="grid grid-cols-2 gap-4">
             <button
-              class="w-full rounded-lg bg-primary-light bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-primary-dark dark:bg-opacity-90 dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
+              class="w-full rounded-md bg-primary-light bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-primary-dark dark:bg-opacity-90 dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
               type="submit"
             >
               <span class="text-sm font-medium">Confirm</span>
             </button>
 
             <a
-              class="flex w-full items-center justify-center rounded-lg bg-primary-light bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-primary-dark dark:bg-opacity-90 dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
-              href="{{ request.META.HTTP_REFERER }}"
+              class="flex w-full items-center justify-center rounded-md bg-primary-light bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-primary-dark dark:bg-opacity-90 dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
+              href="{% url 'pages:home' %}"
             >
               <span class="text-sm font-medium">Back</span>
             </a>
@@ -52,4 +56,5 @@
     </div>
   </div>
 </main>
+
 {% endblock content %}

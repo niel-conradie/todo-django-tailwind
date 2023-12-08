@@ -22,7 +22,7 @@
   <div class="mt-14 flex justify-center px-4 md:mt-28">
     <div class="w-80">
       <div
-        class="mb-4 rounded-lg border border-border-light bg-background-secondary-light p-4 shadow-md dark:border-border-dark dark:bg-background-secondary-dark dark:shadow-none"
+        class="mb-4 rounded-md border border-border-light bg-background-secondary-light p-4 shadow-md dark:border-border-dark dark:bg-background-secondary-dark dark:shadow-none"
       >
         <h1 class="mb-4 mt-0 text-center text-2xl font-medium">Sign Up</h1>
 
@@ -35,13 +35,13 @@
 
           {% if form.errors %}
           <div
-            class="mb-4 rounded-lg border border-danger-light border-opacity-25 bg-danger-light bg-opacity-20 px-4 py-2 dark:border-danger-dark dark:border-opacity-40 dark:bg-danger-dark dark:bg-opacity-20"
+            class="mb-4 rounded-md border border-error-light border-opacity-25 bg-error-light bg-opacity-20 px-4 py-2 dark:border-error-dark dark:border-opacity-40 dark:bg-error-dark dark:bg-opacity-20"
           >
             {% for field in form %}
             <!--  -->
             {% for error in field.errors %}
             <ul>
-              <li class="my-2 text-sm">{{ error }}</li>
+              <li class="my-2 text-center text-sm">{{ error }}</li>
             </ul>
             {% endfor %}
             <!--  -->
@@ -87,7 +87,7 @@
           </div>
 
           <button
-            class="w-full rounded-lg bg-primary-light bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-primary-dark dark:bg-opacity-90 dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
+            class="w-full rounded-md bg-primary-light bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-primary-dark dark:bg-opacity-90 dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
             type="submit"
           >
             <span class="text-sm font-medium">Confirm</span>

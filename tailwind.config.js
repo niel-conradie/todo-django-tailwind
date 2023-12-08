@@ -24,8 +24,8 @@ module.exports = {
 
       // | Background Images
       backgroundImage: {
-        // light: "url('/static/images/background-light.jpg')",
-        // dark: "url('/static/images/background-dark.jpg')",
+        light: "url('/static/images/background-light.jpg')",
+        dark: "url('/static/images/background-dark.jpg')",
       },
 
       // | Color Pallette
@@ -52,6 +52,10 @@ module.exports = {
           light: "hsl(142, 71%, 45%)",
           dark: "hsl(142, 71%, 45%)",
         },
+        error: {
+          light: "hsl(356, 71%, 48%)",
+          dark: "hsl(3, 93%, 63%)",
+        },
         danger: {
           light: "hsl(356, 71%, 48%)",
           dark: "hsl(3, 93%, 63%)",
@@ -59,6 +63,10 @@ module.exports = {
         warning: {
           light: "hsl(45, 93%, 47%)",
           dark: "hsl(45, 93%, 47%)",
+        },
+        info: {
+          light: "hsl(142, 71%, 45%)",
+          dark: "hsl(142, 71%, 45%)",
         },
         border: {
           light: "hsl(216, 12%, 84%)",
@@ -71,10 +79,5 @@ module.exports = {
     },
   },
 
-  plugins: [
-    require("@tailwindcss/aspect-ratio"),
-    require("@tailwindcss/container-queries"),
-    require("@tailwindcss/forms"),
-    require("@tailwindcss/typography"),
-  ],
+  plugins: [],
 };

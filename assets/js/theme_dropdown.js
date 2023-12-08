@@ -57,6 +57,6 @@ try {
     systemThemeDropdownIconPath2.classList.toggle("stroke-primary-light");
     systemThemeDropdownIconPath2.classList.toggle("dark:stroke-primary-dark");
   });
-} catch (e) {
-  // console.error(e); // pass silently
+} catch (error) {
+  // console.error(error); // pass silently
 }

@@ -2,63 +2,124 @@
 
 <!--  -->
 
-{% load i18n %}
-
-<!--  -->
-
-{% block head_title %}{% trans "Email Address" %}{% endblock head_title %}
+{% block head_title %}Email Address{% endblock head_title %}
 
 <!--  -->
 
 {% block content %}
 
-<main>
-  <h1>{% trans "Email Address" %}</h1>
+<main class="py-16">
+  <div class="mt-14 flex justify-center px-4 md:mt-28">
+    <div class="w-80">
+      <div
+        class="mb-4 rounded-md border border-border-light bg-background-secondary-light p-4 shadow-md shadow-shadow-light dark:border-border-dark dark:bg-background-secondary-dark dark:shadow-none"
+      >
+        <h1 class="mb-4 mt-0 text-center text-2xl font-medium">
+          Email Address
+        </h1>
 
-  {% if emailaddresses %}
-  <!--  -->
-  {% if current_emailaddress %}
-  <p>
-    {% trans 'The following email address is associated with your account:' %}
-    <a href="mailto:{{ current_emailaddress.email }}">
-      {{ current_emailaddress.email }}
-    </a>
-  </p>
-  {% endif %}
-  <!--  -->
-  {% if new_emailaddress %}
-  <p>
-    {% trans 'Your email address is still pending verification:' %}
-    <a href="mailto:{{ new_emailaddress.email }}">
-      {{ new_emailaddress.email }}
-    </a>
-  </p>
+        <hr class="mb-4 border-border-light dark:border-border-dark" />
 
-  <form method="post" action="{% url 'account_email' %}">
-    {% csrf_token %}
+        {% if emailaddresses %}
+        <!--  -->
+        {% if current_emailaddress %}
+        <p class="mb-4 text-center">
+          The following email address is associated with your account:
+          <a
+            class="rounded-md text-blue-500 underline-offset-2 hover:underline dark:text-blue-500"
+            href="mailto:{{ current_emailaddress.email }}"
+          >
+            {{ current_emailaddress.email }}
+          </a>
+        </p>
+        {% endif %}
+        <!--  -->
+        {% if new_emailaddress %}
+        <p class="mb-4 text-center">
+          Your email address is still pending verification:
+          <a
+            class="rounded-md text-blue-500 underline-offset-2 hover:underline dark:text-blue-500"
+            href="mailto:{{ new_emailaddress.email }}"
+          >
+            {{ new_emailaddress.email }}
+          </a>
+        </p>
 
-    <input type="hidden" name="email" value="{{ new_emailaddress.email }}" />
+        <form method="POST" action="{% url 'account_email' %}">
+          {% csrf_token %}
 
-    <button type="submit" name="action_send">
-      {% trans 'Re-send Verification' %}
-    </button>
-  </form>
-  {% endif %}
-  <!--  -->
-  {% else %}
-  <!--  -->
-  {% include "account/snippets/warn_no_email.html" %}
-  <!--  -->
-  {% endif %}
-  <h2>{% trans "Change Email Address" %}</h2>
+          <input
+            type="hidden"
+            name="email"
+            value="{{ new_emailaddress.email }}"
+          />
 
-  <form method="POST" action="{% url 'account_email' %}">
-    {% csrf_token %}
+          <button
+            class="mb-4 w-full rounded-md bg-primary-light bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-primary-dark dark:bg-opacity-90 dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
+            name="action_send"
+            type="submit"
+          >
+            <span class="text-sm font-medium">Re-send Verification</span>
+          </button>
+        </form>
+        {% endif %}
+        <!--  -->
+        {% else %}
+        <!--  -->
+        {% include "account/snippets/warn_no_email.html" %}
+        <!--  -->
+        {% endif %}
 
-    <div>{{ form.as_p }}</div>
+        <hr class="mb-4 border-border-light dark:border-border-dark" />
 
-    <button name="action_add" type="submit">{% trans "Change Email" %}</button>
-  </form>
+        <h2 class="mb-4 text-center font-medium">Change Email Address:</h2>
+
+        <form method="POST" action="{% url 'account_email' %}">
+          {% csrf_token %}
+
+          <!--  -->
+
+          {% if form.errors %}
+          <div
+            class="mb-4 rounded-md border border-error-light border-opacity-25 bg-error-light bg-opacity-20 p-4 dark:border-error-dark dark:border-opacity-40 dark:bg-error-dark dark:bg-opacity-20"
+          >
+            {% for field in form %}
+            <!--  -->
+            {% for error in field.errors %}
+            <p class="text-center text-sm">{{ error }}</p>
+            {% endfor %}
+            <!--  -->
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          <div class="mb-4">
+            <label class="fixed left-[9999px]" for="{{ form.email.auto_id }}">
+              {{ form.email.name }}
+            </label>
+            {{ form.email }}
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <button
+              class="w-full rounded-md bg-primary-light bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-primary-dark dark:bg-opacity-90 dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
+              name="action_add"
+              type="submit"
+            >
+              <span class="text-sm font-medium">Confirm</span>
+            </button>
+
+            <a
+              class="flex items-center justify-center rounded-md bg-primary-light bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-primary-dark dark:bg-opacity-90 dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
+              href="{% url 'pages:home' %}"
+            >
+              <span class="text-sm font-medium">Back</span>
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </main>
 
 {% endblock content %}

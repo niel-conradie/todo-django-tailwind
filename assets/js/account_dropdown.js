@@ -23,6 +23,6 @@ try {
     accountDropdownIconPath2.classList.toggle("stroke-primary-light");
     accountDropdownIconPath2.classList.toggle("dark:stroke-primary-dark");
   });
-} catch (e) {
-  // console.error(e); // pass silently
+} catch (error) {
+  // console.error(error); // pass silently
 }

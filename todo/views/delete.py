@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
 
@@ -15,6 +16,7 @@ def task_delete_view(request, slug, pk):
 
         if form.is_valid():
             task.delete()
+            messages.success(request, "Task Deleted")
             return redirect("pages:home")
     else:
         form = DeleteModelForm()

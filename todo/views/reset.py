@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 
@@ -15,4 +16,5 @@ def task_reset_view(request):
         else:
             pass
 
+    messages.success(request, "Tasks Reset")
     return redirect("pages:home")

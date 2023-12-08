@@ -95,18 +95,24 @@
 
     {% endblock script %}
   </head>
+  {% block body %}
+
   <body
     class="bg-background-primary-light font-primary text-text-light dark:bg-background-primary-dark dark:text-text-dark"
   >
-    {% block body %}
-
-    <!--  -->
-
     {% block header %}
     <!--  -->
     {% include "components/navbar.html" %}
     <!--  -->
     {% endblock header %}
+
+    <!--  -->
+
+    {% block message %}
+    <!--  -->
+    {% include 'components/message.html' %}
+    <!--  -->
+    {% endblock message %}
 
     <!--  -->
 
@@ -130,15 +136,13 @@
     <script src="{% static 'js/main.min.js' %}"></script>
 
     {% endblock javascript %}
-
-    <!--  -->
-
-    {% endblock body %}
-
-    <!--  -->
-
-    {% block extra_body %}
-    <!--  -->
-    {% endblock extra_body %}
   </body>
+
+  {% endblock body %}
+
+  <!--  -->
+
+  {% block extra_body %}
+  <!--  -->
+  {% endblock extra_body %}
 </html>

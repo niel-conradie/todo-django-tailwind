@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 
@@ -13,8 +14,8 @@ def task_create_view(request):
             task = form.save(commit=False)
             task.created_by = request.user
             task.save()
+            messages.success(request, "Task Created")
             return redirect("pages:home")
-
     else:
         form = TaskModelForm()
 

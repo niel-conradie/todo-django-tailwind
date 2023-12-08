@@ -12,7 +12,7 @@
   <div class="mt-14 flex justify-center px-4 md:mt-28">
     <div class="w-80">
       <div
-        class="mb-4 rounded-lg border border-border-light bg-background-secondary-light p-4 shadow-md shadow-shadow-light dark:border-border-dark dark:bg-background-secondary-dark dark:shadow-none"
+        class="mb-4 rounded-md border border-border-light bg-background-secondary-light p-4 shadow-md shadow-shadow-light dark:border-border-dark dark:bg-background-secondary-dark dark:shadow-none"
       >
         <h1 class="mb-4 mt-0 text-center text-2xl font-medium">
           Email Addresses
@@ -21,7 +21,7 @@
         <hr class="mb-4 border-border-light dark:border-border-dark" />
 
         {% if emailaddresses %}
-        <p class="mb-4">
+        <p class="mb-4 text-center">
           The following email addresses are associated with your account:
         </p>
 
@@ -36,7 +36,7 @@
             {% for emailaddress in emailaddresses %}
             <div class="ctrlHolder mb-4">
               <label
-                class="{% if emailaddress.primary %}primary_email{%endif%}"
+                class="{% if emailaddress.primary %}primary_email{%endif%} cursor-pointer"
                 for="email_radio_{{forloop.counter}}"
               >
                 <input
@@ -48,10 +48,10 @@
 
                 {{ emailaddress.email }}
                 <!--  -->
-                <div class="ms-5 mt-2 flex gap-2">
+                <div class="ms-2 mt-2 flex gap-x-2">
                   {% if emailaddress.primary %}
                   <span
-                    class="rounded-lg bg-primary-light px-1 text-center text-sm font-medium text-white dark:bg-primary-dark dark:text-white"
+                    class="rounded-md bg-primary-light px-1 text-center text-sm font-medium text-white dark:bg-primary-dark dark:text-white"
                   >
                     Primary
                   </span>
@@ -59,13 +59,13 @@
                   <!--  -->
                   {% if emailaddress.verified %}
                   <span
-                    class="bg-success-light dark:bg-success-dark rounded-lg px-1 text-center text-sm font-medium text-white dark:text-white"
+                    class="rounded-md bg-success-light px-1 text-center text-sm font-medium text-white dark:bg-success-dark dark:text-white"
                   >
                     Verified
                   </span>
                   {% else %}
                   <span
-                    class="rounded-lg bg-danger-light px-1 text-center text-sm font-medium text-white dark:bg-danger-dark dark:text-white"
+                    class="rounded-md bg-danger-light px-1 text-center text-sm font-medium text-white dark:bg-danger-dark dark:text-white"
                   >
                     Unverified
                   </span>
@@ -78,7 +78,7 @@
             <div class="buttonHolder">
               <div class="mb-3 grid grid-cols-3 gap-4">
                 <button
-                  class="secondaryAction flex items-center justify-center rounded-lg bg-primary-light bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-primary-dark dark:bg-opacity-90 dark:text-white dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
+                  class="secondaryAction flex items-center justify-center rounded-md bg-primary-light bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-primary-dark dark:bg-opacity-90 dark:text-white dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
                   type="submit"
                   name="action_primary"
                 >
@@ -86,7 +86,7 @@
                 </button>
 
                 <button
-                  class="secondaryAction bg-success-light dark:bg-success-dark flex items-center justify-center rounded-lg bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-opacity-90 dark:text-white dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
+                  class="secondaryAction flex items-center justify-center rounded-md bg-success-light bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-success-dark dark:bg-opacity-90 dark:text-white dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
                   type="submit"
                   name="action_send"
                 >
@@ -94,7 +94,7 @@
                 </button>
 
                 <button
-                  class="primaryAction flex items-center justify-center rounded-lg bg-danger-light bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-danger-dark dark:bg-opacity-90 dark:text-white dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
+                  class="primaryAction flex items-center justify-center rounded-md bg-danger-light bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-danger-dark dark:bg-opacity-90 dark:text-white dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
                   type="submit"
                   name="action_remove"
                 >
@@ -113,7 +113,7 @@
         {% if can_add_email %}
         <hr class="mb-4 border-border-light dark:border-border-dark" />
 
-        <h2 class="mb-4">Add Email Address:</h2>
+        <h2 class="mb-4 text-center font-medium">Add Email Address:</h2>
 
         <form
           class="add_email"
@@ -126,12 +126,12 @@
 
           {% if form.errors %}
           <div
-            class="mb-4 rounded-lg border border-danger-light border-opacity-25 bg-danger-light bg-opacity-20 p-4 dark:border-danger-dark dark:border-opacity-40 dark:bg-danger-dark dark:bg-opacity-20"
+            class="mb-4 rounded-md border border-error-light border-opacity-25 bg-error-light bg-opacity-20 p-4 dark:border-error-dark dark:border-opacity-40 dark:bg-error-dark dark:bg-opacity-20"
           >
             {% for field in form %}
             <!--  -->
             {% for error in field.errors %}
-            <p class="text-sm">{{ error }}</p>
+            <p class="text-center text-sm">{{ error }}</p>
             {% endfor %}
             <!--  -->
             {% endfor %}
@@ -147,7 +147,7 @@
 
           <div class="grid grid-cols-2 gap-4">
             <button
-              class="w-full rounded-lg bg-primary-light bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-primary-dark dark:bg-opacity-90 dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
+              class="w-full rounded-md bg-primary-light bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-primary-dark dark:bg-opacity-90 dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
               name="action_add"
               type="submit"
             >
@@ -155,7 +155,7 @@
             </button>
 
             <a
-              class="flex items-center justify-center rounded-lg bg-primary-light bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-primary-dark dark:bg-opacity-90 dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
+              class="flex items-center justify-center rounded-md bg-primary-light bg-opacity-90 px-2.5 py-2 text-white transition-colors duration-300 hover:bg-opacity-100 focus:bg-opacity-100 dark:bg-primary-dark dark:bg-opacity-90 dark:hover:bg-opacity-100 dark:focus:bg-opacity-100"
               href="{% url 'pages:home' %}"
             >
               <span class="text-sm font-medium">Back</span>
