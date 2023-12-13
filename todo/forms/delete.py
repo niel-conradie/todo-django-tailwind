@@ -1,5 +1,9 @@
-from django import forms
+from django.forms import Form
 
 
-class DeleteModelForm(forms.Form):
+class DeleteModelForm(Form):
+    """
+    A Django form used to delete an instance of the TaskModel model.
+    """
+
     pass

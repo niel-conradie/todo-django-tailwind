@@ -1,4 +1,4 @@
-from accounts.tests.user import CustomUserTests
+from accounts.tests.models.user import CustomUserTests
 
 
 __all__ = [

@@ -20,8 +20,8 @@ def task_create_view(request):
         form = TaskModelForm()
 
     context = {
-        "form": form,
         "title": "Create",
         "h1": "Create Task",
+        "form": form,
     }
     return render(request, "todo/form.html", context)

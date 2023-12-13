@@ -22,9 +22,9 @@ def task_delete_view(request, slug, pk):
         form = DeleteModelForm()
 
     context = {
-        "form": form,
-        "obj": task,
         "title": "Delete",
         "h1": "Delete Task",
+        "form": form,
+        "obj": task,
     }
     return render(request, "todo/delete.html", context)

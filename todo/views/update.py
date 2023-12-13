@@ -22,8 +22,8 @@ def task_update_view(request, slug, pk):
         form = TaskModelForm(instance=task)
 
     context = {
-        "form": form,
         "title": "Update",
         "h1": "Update Task",
+        "form": form,
     }
     return render(request, "todo/form.html", context)

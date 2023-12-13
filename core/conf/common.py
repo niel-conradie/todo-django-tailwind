@@ -1,6 +1,7 @@
 # https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
+from django.core.management.utils import get_random_secret_key
 
 from environs import Env
 
@@ -20,7 +21,7 @@ env.read_env()
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # https://docs.djangoproject.com/en/4.2/ref/settings/#std:setting-SECRET_KEY
-SECRET_KEY = env.str("DJANGO_SECRET_KEY")
+SECRET_KEY = env.str("DJANGO_SECRET_KEY", default=get_random_secret_key())
 
 # https://docs.djangoproject.com/en/4.2/ref/settings/#debug
 DEBUG = env.bool("DJANGO_DEBUG", default=False)
