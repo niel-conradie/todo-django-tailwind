@@ -12,10 +12,10 @@ class IndexPageViewTests(TestCase):
     - TestCase (class): TestCase is a class provided by Django for writing tests for your Django applications.
 
     Methods:
-    - setUp(): Set up the test case by initializing the URL.
-    - test_url_exists_at_correct_location(): Test if the URL exists at the correct location.
-    - test_url_resolves(): Test whether the URL resolves to the correct view function.
-    - test_correct_template_used(): Test whether the correct template is used when accessing the specified URL.
+    - setUp(self): Set up the test case by initializing the URL.
+    - test_url_exists_at_correct_location(self): Test if the URL exists at the correct location.
+    - test_url_resolves(self): Test whether the URL resolves to the correct view function.
+    - test_correct_template_used(self): Test whether the correct template is used when accessing the specified URL.
     """
 
     def setUp(self):
@@ -60,6 +60,9 @@ class IndexPageViewTests(TestCase):
         This function uses the `resolve()` function to determine which view function is
         mapped to the given URL. It then asserts that the resolved view function is
         equal to the `index_page_view` function.
+
+        Parameters:
+        - self: The instance of the test class.
 
         Return Types:
         - None

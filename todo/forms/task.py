@@ -16,7 +16,7 @@ class TaskModelForm(ModelForm):
     - Meta: Provides metadata for the TaskModelForm class in Django.
 
     Methods:
-    - __init__(self, *args, **kwargs): Initializes the form instance. Sets the label and required properties of the day field.
+    - __init__(self, *args, **kwargs): Initializes the TaskModelForm instance.
     """
 
     title = CharField(

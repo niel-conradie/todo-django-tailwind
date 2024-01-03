@@ -19,13 +19,13 @@ class HomePageViewTests(TestCase):
     - TestCase (class): TestCase is a class provided by Django for writing tests for your Django applications.
 
     Methods:
-    - setUpTestData(): Set up the test data for the class.
-    - setUp(): Set up the test environment before running the test cases.
-    - test_url_exists_at_correct_location(): Test if the URL exists at the correct location.
-    - test_url_resolves(): Test whether the URL resolves to the correct view function.
-    - test_correct_template_used(): Test whether the correct template is used when accessing the specified URL.
-    - test_correct_template_html(): Test the correctness of the HTML template.
-    - test_correct_template_context(): Test the correctness of the template context.
+    - setUpTestData(cls): Set up the test data for the class.
+    - setUp(self): Set up the test environment before running the test cases.
+    - test_url_exists_at_correct_location(self): Test if the URL exists at the correct location.
+    - test_url_resolves(self): Test whether the URL resolves to the correct view function.
+    - test_correct_template_used(self): Test whether the correct template is used when accessing the specified URL.
+    - test_correct_template_html(self): Test the correctness of the HTML template.
+    - test_correct_template_context(self): Test the correctness of the template context.
     """
 
     @classmethod

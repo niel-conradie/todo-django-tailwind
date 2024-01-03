@@ -18,7 +18,7 @@ class DayModel(UUIDModel):
     - Meta: Provides metadata for the TaskModel class in Django.
 
     Methods:
-    - __str__(): Returns a string representation of the object.
+    - __str__(self): Returns a string representation of the object.
     """
 
     TITLE_CHOICES = (
@@ -42,7 +42,7 @@ class DayModel(UUIDModel):
         """
         Provides metadata for the TaskModel class in Django.
 
-        Fields:
+        Options:
         - verbose_name (str): Specifies the singular name for the model, which will be displayed in the Django admin interface.
         - verbose_name_plural (str): Specifies the plural name for the model, which will be displayed in the Django admin interface.
         """

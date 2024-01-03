@@ -14,6 +14,9 @@ class CustomUserChangeForm(UserChangeForm):
 
     Parameters:
     - UserChangeForm (class): The base user change form that provides the basic user fields and methods.
+
+    Class:
+    - Meta: Provides metadata for the CustomUserChangeForm class in Django.
     """
 
     class Meta:

@@ -14,6 +14,9 @@ class CustomUserCreationForm(UserCreationForm):
 
     Parameters:
     - UserCreationForm (class): The base user creation form that provides the basic user fields and methods.
+
+    Class:
+    - Meta: Provides metadata for the CustomUserCreationForm class in Django.
     """
 
     class Meta:

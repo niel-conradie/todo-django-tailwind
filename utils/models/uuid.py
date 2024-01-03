@@ -29,7 +29,7 @@ class UUIDModel(Model):
         """
         Provides metadata for the UUIDModel class in Django.
 
-        Fields:
+        Options:
         - abstract (boolean): Specifies if the UUIDModel class should be treated as an abstract model.
         """
 

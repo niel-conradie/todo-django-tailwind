@@ -7,14 +7,17 @@
   bg-background-primary-light 
     p-2 
     text-sm
+    outline-none    
     transition-colors
     duration-300
   placeholder:text-text-light    
   hover:border-primary-light 
+  focus:border-primary-light 
   dark:border-border-dark
   dark:bg-background-primary-dark 
   dark:placeholder:text-text-dark
-  dark:hover:border-primary-dark;
+  dark:hover:border-primary-dark
+  dark:focus:border-primary-dark;
   }
 }
 

@@ -15,7 +15,7 @@ class CustomUser(AbstractUser, UUIDModel):
     - UUIDModel (class): The model that adds a UUID field to the model.
 
     Methods:
-    - __str__(): Returns a string representation of the object.
+    - __str__(self): Returns a string representation of the object.
     """
 
     def __str__(self):

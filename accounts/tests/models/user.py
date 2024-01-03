@@ -14,17 +14,17 @@ class CustomUserTests(TestCase):
     - TestCase (class): TestCase is a class provided by Django for writing tests for your Django applications.
 
     Methods:
-    - setUpTestData(): Set up the test data for the class.
-    - test_create_user(): A test case that verifies the creation of a user.
-    - test_create_superuser(): A test case that verifies the creation of a superuser.
-    - test_create_user_empty_username(): Test case to check if a ValueError is raised when creating a user with an empty username.
-    - test_create_user_duplicate_username(): Test case for creating a user with a duplicate username.
-    - test_get_user_by_username(): Test the functionality of retrieving a user by username.
-    - test_get_user_by_email(): Test the functionality of retrieving a user by email.
-    - test_update_user_username(): Test case to update the username of a user.
-    - test_update_user_email(): Test case to update the email of a user.
-    - test_update_user_password(): Test case to ensure that updating the password of a user is reflected in the database.
-    - test_delete_user(): Test case to ensure that deleting a user removes it from the database.
+    - setUpTestData(cls): Set up the test data for the class.
+    - test_create_user(self): A test case that verifies the creation of a user.
+    - test_create_superuser(self): A test case that verifies the creation of a superuser.
+    - test_create_user_empty_username(self): Test case to check if a ValueError is raised when creating a user with an empty username.
+    - test_create_user_duplicate_username(self): Test case for creating a user with a duplicate username.
+    - test_get_user_by_username(self): Test the functionality of retrieving a user by username.
+    - test_get_user_by_email(self): Test the functionality of retrieving a user by email.
+    - test_update_user_username(self): Test case to update the username of a user.
+    - test_update_user_email(self): Test case to update the email of a user.
+    - test_update_user_password(self): Test case to ensure that updating the password of a user is reflected in the database.
+    - test_delete_user(self): Test case to ensure that deleting a user removes it from the database.
     """
 
     @classmethod
