@@ -167,6 +167,7 @@ class HomePageViewTests(TestCase):
         # Simulate a GET request by calling the `get` method of the `client` object
         response = self.client.get(self.url)
 
+        # Test if template html is accurate
         self.assertContains(response, "Task Title")
         self.assertContains(response, "09:00")
         self.assertContains(response, "10:00")

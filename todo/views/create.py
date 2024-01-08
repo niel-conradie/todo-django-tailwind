@@ -17,6 +17,9 @@ def task_create_view(request):
 
     Returns:
     - HttpResponse: The rendered HTML response.
+
+    Raises:
+    - login_required: If the user is not authenticated.
     """
 
     # Check if the request method is POST
