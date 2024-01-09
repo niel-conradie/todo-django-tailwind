@@ -31,21 +31,21 @@
     "tailwind"
   ],
   "devDependencies": {
-    "@babel/core": "^7.23.5",
-    "@babel/preset-env": "^7.23.5",
+    "@babel/core": "^7.23.7",
+    "@babel/preset-env": "^7.23.7",
     "autoprefixer": "^10.4.16",
-    "cssnano": "^6.0.1",
+    "cssnano": "^6.0.3",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-postcss": "^9.0.1",
     "gulp-rename": "^2.0.0",
     "gulp-terser": "^2.1.0",
-    "postcss": "^8.4.32",
-    "postcss-import": "^15.1.0",
-    "prettier": "^3.1.0",
-    "prettier-plugin-tailwindcss": "^0.5.9",
-    "tailwindcss": "^3.3.6"
+    "postcss": "^8.4.33",
+    "postcss-import": "^16.0.0",
+    "prettier": "^3.1.1",
+    "prettier-plugin-tailwindcss": "^0.5.11",
+    "tailwindcss": "^3.4.1"
   },
   "browserslist": {
     "production": [
