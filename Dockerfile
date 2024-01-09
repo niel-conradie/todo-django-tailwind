@@ -1,7 +1,7 @@
 # https://docs.docker.com/engine/reference/builder/
 
 # Python version
-ARG PYTHON_VERSION=3.11-slim-buster
+ARG PYTHON_VERSION=3.12.1-slim-bullseye
 
 # Pull base image
 FROM python:${PYTHON_VERSION}
@@ -13,7 +13,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 # the application crashes without emitting any logs due to buffering
 ENV PYTHONUNBUFFERED 1
 
-# Create and set work directory called `app`
+# Create and set work directory called `code`
 RUN mkdir -p /code
 WORKDIR /code
 
